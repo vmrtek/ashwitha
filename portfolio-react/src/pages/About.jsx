@@ -18,7 +18,7 @@ function About() {
         <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '4rem' }}>
           <div>
             <p style={{ fontSize: '1.375rem', lineHeight: 1.7, marginBottom: '1.5rem' }}>
-              I'm a UX Designer specializing in translating complex product requirements 
+              I'm a Product Designer specializing in translating complex product requirements 
               into clear, visual design artifacts that engineering teams can act on immediately.
             </p>
             <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '1.5rem' }}>
@@ -83,7 +83,7 @@ function About() {
                 color: 'white'
               }}>AR</div>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '0.25rem' }}>Ashwitha Reddy</h3>
-              <p style={{ color: 'var(--accent-primary)', fontSize: '0.875rem', marginBottom: '1rem' }}>UX Designer</p>
+              <p style={{ color: 'var(--accent-primary)', fontSize: '0.875rem', marginBottom: '1rem' }}>Product Designer</p>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>📍 United States</p>
             </div>
 
@@ -96,14 +96,14 @@ function About() {
                   <span style={{ width: '8px', height: '8px', background: 'var(--accent-success)', borderRadius: '50%' }}></span>
                   <strong style={{ fontSize: '0.875rem' }}>LifeBridge Health</strong>
                 </div>
-                <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', paddingLeft: '1.25rem' }}>UX Designer · Jun 2025 – Present</p>
+                <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', paddingLeft: '1.25rem' }}>Product Designer · Jun 2025 – Present</p>
               </div>
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.25rem' }}>
                   <span style={{ width: '8px', height: '8px', background: 'var(--text-muted)', borderRadius: '50%' }}></span>
                   <strong style={{ fontSize: '0.875rem' }}>Montefiore Health System</strong>
                 </div>
-                <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', paddingLeft: '1.25rem' }}>UX Designer · Sep 2019 – Dec 2023</p>
+                <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', paddingLeft: '1.25rem' }}>Product Designer · Sep 2019 – Dec 2023</p>
               </div>
             </div>
 

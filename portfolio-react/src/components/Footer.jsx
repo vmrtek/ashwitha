@@ -6,7 +6,7 @@ function Footer() {
       <div className="footer-content">
         <div className="footer-brand">
           <span className="logo">Ashwitha Reddy</span>
-          <p>UX Designer · Airtable · Wireframing · Product Visualization</p>
+          <p>Product Designer · Airtable · Wireframing · Product Visualization</p>
         </div>
         <div className="footer-nav">
           <Link to="/about">About</Link>

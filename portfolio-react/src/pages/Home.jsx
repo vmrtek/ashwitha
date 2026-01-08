@@ -10,7 +10,7 @@ function Home() {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
-          <span className="hero-badge">UX Designer • 5 Years Experience</span>
+          <span className="hero-badge">Product Designer • 5 Years Experience</span>
           <h1 className="hero-title">
             <span className="hero-name">Ashwitha Reddy</span>
             <span className="hero-tagline">Crafting Visual Product Roadmaps & Wireframes</span>

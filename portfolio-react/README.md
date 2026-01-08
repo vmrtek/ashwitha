@@ -1,4 +1,4 @@
-# Ashwitha Reddy - UX Designer Portfolio
+# Ashwitha Reddy - Product Designer Portfolio
 
 A modern React-based portfolio showcasing UX design expertise in Airtable visualization, wireframing, and product design for healthcare and enterprise applications.
 
