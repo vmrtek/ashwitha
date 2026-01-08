@@ -720,6 +720,14 @@ img {
 .skill-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Icon styles */
+.icon-healthcare {
+    color: var(--accent-danger);
 }
 
 .skill-card h3 {

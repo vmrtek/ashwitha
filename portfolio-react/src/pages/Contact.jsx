@@ -1,40 +1,51 @@
 import { Link } from 'react-router-dom';
+import { 
+  EmailIcon, 
+  PhoneIcon, 
+  LinkedInLogo,
+  AirtableLogo,
+  WireframeLogo,
+  HealthcareIcon
+} from '../components/Icons';
 
 function Contact() {
   const contactMethods = [
     {
-      icon: '📧',
+      Icon: EmailIcon,
       label: 'Email',
       value: 'ashwithareddyk27@gmail.com',
-      href: 'mailto:ashwithareddyk27@gmail.com'
+      href: 'mailto:ashwithareddyk27@gmail.com',
+      color: 'var(--accent-primary)'
     },
     {
-      icon: '📱',
+      Icon: PhoneIcon,
       label: 'Phone',
       value: '+1 (678) 603-8174',
-      href: 'tel:+16786038174'
+      href: 'tel:+16786038174',
+      color: 'var(--accent-success)'
     },
     {
-      icon: '💼',
+      Icon: LinkedInLogo,
       label: 'LinkedIn',
       value: 'linkedin.com/in/reddyashwitha',
       href: 'https://linkedin.com/in/reddyashwitha',
-      external: true
+      external: true,
+      color: '#0A66C2'
     }
   ];
 
   const quickLinks = [
-    { icon: '📁', title: 'View My Projects', desc: '5 industry case studies', link: '/projects' },
-    { icon: '📊', title: 'Airtable Expertise', desc: 'Roadmap visualization skills', link: '/airtable' },
-    { icon: '📐', title: 'Wireframing Work', desc: '400+ wireframes created', link: '/wireframes' },
-    { icon: '👤', title: 'About Me', desc: '5 years of experience', link: '/about' }
+    { Icon: () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>, title: 'View My Projects', desc: '5 industry case studies', link: '/projects' },
+    { Icon: AirtableLogo, title: 'Airtable Expertise', desc: 'Roadmap visualization skills', link: '/airtable' },
+    { Icon: WireframeLogo, title: 'Wireframing Work', desc: '400+ wireframes created', link: '/wireframes' },
+    { Icon: () => <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>, title: 'About Me', desc: '5 years of experience', link: '/about' }
   ];
 
   const highlights = [
-    { icon: '📊', title: 'Airtable Expert', desc: 'Product roadmaps, linked records, timeline views, kanban boards' },
-    { icon: '📐', title: 'Strong Wireframing', desc: '400+ wireframes, low to high fidelity, engineering handoff' },
-    { icon: '🏥', title: 'Healthcare Domain', desc: 'Clinical workflows, hospital operations, compliance' },
-    { icon: '🤝', title: 'Cross-Functional', desc: 'Product, engineering, and stakeholder collaboration' }
+    { Icon: AirtableLogo, title: 'Airtable Expert', desc: 'Product roadmaps, linked records, timeline views, kanban boards' },
+    { Icon: WireframeLogo, title: 'Strong Wireframing', desc: '400+ wireframes, low to high fidelity, engineering handoff' },
+    { Icon: HealthcareIcon, title: 'Healthcare Domain', desc: 'Clinical workflows, hospital operations, compliance', color: 'var(--accent-danger)' },
+    { Icon: () => <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>, title: 'Cross-Functional', desc: 'Product, engineering, and stakeholder collaboration' }
   ];
 
   return (
@@ -70,7 +81,9 @@ function Contact() {
                   rel={method.external ? 'noopener noreferrer' : undefined}
                   className="contact-card"
                 >
-                  <span className="contact-icon">{method.icon}</span>
+                  <span className="contact-icon" style={{ color: method.color }}>
+                    <method.Icon size={28} />
+                  </span>
                   <div>
                     <span className="contact-label">{method.label}</span>
                     <span className="contact-value">{method.value}</span>
@@ -114,7 +127,9 @@ function Contact() {
                       transition: 'all 0.3s ease'
                     }}
                   >
-                    <span style={{ fontSize: '1.5rem' }}>{item.icon}</span>
+                    <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <item.Icon size={24} />
+                    </span>
                     <div>
                       <h4 style={{ fontSize: '0.875rem', marginBottom: '0.125rem' }}>{item.title}</h4>
                       <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{item.desc}</p>
@@ -161,7 +176,9 @@ function Contact() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem' }}>
           {highlights.map((item) => (
             <div key={item.title} className="card" style={{ textAlign: 'center' }}>
-              <span style={{ fontSize: '2.5rem', display: 'block', marginBottom: '1rem' }}>{item.icon}</span>
+              <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem', color: item.color || 'var(--accent-primary)' }}>
+                <item.Icon size={40} />
+              </span>
               <h3 style={{ fontSize: '1rem', marginBottom: '0.5rem' }}>{item.title}</h3>
               <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>{item.desc}</p>
             </div>
@@ -182,4 +199,3 @@ function Contact() {
 }
 
 export default Contact;
-

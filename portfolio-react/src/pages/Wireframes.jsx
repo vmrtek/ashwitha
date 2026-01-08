@@ -1,22 +1,26 @@
 import { Link } from 'react-router-dom';
+import { WireframeLogo, FigmaLogo, MiroLogo } from '../components/Icons';
 
 function Wireframes() {
   const fidelityLevels = [
     {
       title: 'Low-Fidelity',
       time: '30 min - 2 hours',
+      icon: '✏️',
       description: 'Quick concept exploration focusing on layout, information hierarchy, and user flow without visual design distractions.',
       features: ['Rapid ideation', 'Layout exploration', 'Stakeholder alignment', 'Early feedback loops']
     },
     {
       title: 'Mid-Fidelity',
       time: '2 - 4 hours',
+      icon: '📝',
       description: 'Refined structure with component definitions, spacing systems, and interaction patterns for engineering review.',
       features: ['Component structure', 'Spacing & alignment', 'Interaction states', 'Content hierarchy']
     },
     {
       title: 'High-Fidelity',
       time: '4 - 8 hours',
+      icon: '🎨',
       description: 'Complete visual designs with interactions, animations, and realistic content for usability testing and final handoff.',
       features: ['Visual design system', 'Interactive prototypes', 'Usability testing', 'Developer handoff']
     }
@@ -24,25 +28,25 @@ function Wireframes() {
 
   const deliverables = [
     {
-      icon: '🖥️',
+      Icon: () => <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>,
       title: 'Screen Layouts',
       description: 'Complete screen definitions with all UI elements, content areas, and navigation patterns clearly specified.',
       items: ['Desktop layouts', 'Mobile layouts', 'Tablet adaptations', 'Responsive breakpoints']
     },
     {
-      icon: '🔄',
+      Icon: () => <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>,
       title: 'Interaction States',
       description: 'All UI states documented: default, hover, active, disabled, loading, empty, error, and success states.',
       items: ['Button states', 'Form validations', 'Loading indicators', 'Error handling']
     },
     {
-      icon: '📝',
+      Icon: () => <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>,
       title: 'Functional Documentation',
       description: 'Detailed specifications for each screen with behavior notes, business rules, and edge case handling.',
       items: ['Behavior specifications', 'Business rules', 'Data requirements', 'API considerations']
     },
     {
-      icon: '🤝',
+      Icon: () => <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>,
       title: 'Engineering Handoff',
       description: 'Complete packages ready for development with all assets, specs, and documentation organized.',
       items: ['Organized file structure', 'Component specs', 'Design tokens', 'Implementation notes']
@@ -67,7 +71,7 @@ function Wireframes() {
       <header className="tool-page-hero wireframe">
         <div className="page-hero-content">
           <span className="tool-badge wireframe">
-            <span className="tool-badge-icon">📐</span>
+            <WireframeLogo size={20} />
             <span>Expert Level</span>
           </span>
           <h1>Wireframes</h1>
@@ -93,6 +97,16 @@ function Wireframes() {
             My deliverables include not just the screens, but also the states, edge cases, 
             and documentation needed for complete implementation.
           </p>
+          <div style={{ display: 'flex', gap: '1.5rem', marginTop: '2rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 1.5rem', background: 'var(--bg-secondary)', borderRadius: '12px' }}>
+              <FigmaLogo size={24} />
+              <span>Figma</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 1.5rem', background: 'var(--bg-secondary)', borderRadius: '12px' }}>
+              <MiroLogo size={24} />
+              <span>Miro</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -102,7 +116,7 @@ function Wireframes() {
         <p className="section-desc">From initial concept to production-ready specifications</p>
         
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
-          {fidelityLevels.map((level, index) => (
+          {fidelityLevels.map((level) => (
             <div key={level.title} className="card" style={{ overflow: 'hidden', padding: 0 }}>
               <div style={{ 
                 height: '200px', 
@@ -112,9 +126,7 @@ function Wireframes() {
                 justifyContent: 'center',
                 fontSize: '4rem'
               }}>
-                {index === 0 && '✏️'}
-                {index === 1 && '📝'}
-                {index === 2 && '🎨'}
+                {level.icon}
               </div>
               <div style={{ padding: '1.5rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
@@ -169,9 +181,9 @@ function Wireframes() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '2.5rem'
+                color: 'var(--accent-primary)'
               }}>
-                {item.icon}
+                <item.Icon />
               </div>
               <h3 style={{ fontSize: '1rem', marginBottom: '0.75rem' }}>{item.title}</h3>
               <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '1rem' }}>
@@ -247,4 +259,3 @@ function Wireframes() {
 }
 
 export default Wireframes;
-

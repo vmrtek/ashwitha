@@ -1,11 +1,22 @@
 import { Link } from 'react-router-dom';
+import { 
+  AirtableLogo, 
+  FigmaLogo, 
+  MiroLogo,
+  HealthcareIcon,
+  RetailIcon,
+  ManufacturingIcon,
+  EcommerceIcon,
+  BankingIcon
+} from '../components/Icons';
 
 function Projects() {
   const projects = [
     {
       id: 'healthcare',
       industry: 'Healthcare',
-      icon: '🏥',
+      Icon: HealthcareIcon,
+      color: 'var(--accent-danger)',
       title: 'CareFlow: Clinical Workflow Management System',
       subtitle: 'End-to-end patient care coordination platform for a 500+ bed hospital network',
       overview: 'Designed a comprehensive clinical workflow management system for a 500+ bed hospital network. The platform streamlines patient admissions, care coordination, discharge planning, and cross-departmental communication.',
@@ -27,7 +38,8 @@ function Projects() {
     {
       id: 'retail',
       industry: 'Retail',
-      icon: '🛒',
+      Icon: RetailIcon,
+      color: 'var(--accent-success)',
       title: 'RetailSync: Omnichannel Inventory Management',
       subtitle: 'Real-time inventory visibility across 200+ store locations and online channels',
       overview: 'Designed an enterprise inventory management system for a national retail chain with 200+ locations. The platform provides real-time stock visibility, automated reorder triggers, and cross-channel fulfillment optimization.',
@@ -49,7 +61,8 @@ function Projects() {
     {
       id: 'manufacturing',
       industry: 'Manufacturing',
-      icon: '🏭',
+      Icon: ManufacturingIcon,
+      color: 'var(--accent-cyan)',
       title: 'FactoryOS: Production Line Monitoring Platform',
       subtitle: 'IoT-integrated manufacturing execution system for smart factory operations',
       overview: 'Designed a comprehensive manufacturing execution system (MES) for an automotive parts manufacturer with 5 production facilities. The platform provides real-time production monitoring and predictive maintenance alerts.',
@@ -71,7 +84,8 @@ function Projects() {
     {
       id: 'ecommerce',
       industry: 'E-commerce',
-      icon: '🛍️',
+      Icon: EcommerceIcon,
+      color: 'var(--accent-secondary)',
       title: 'ShopHub: Seller Management Platform',
       subtitle: 'B2B marketplace platform for 10,000+ third-party sellers',
       overview: 'Designed the internal seller management platform for a major e-commerce marketplace. The system handles seller onboarding, product catalog management, order fulfillment tracking, and compliance monitoring.',
@@ -93,7 +107,8 @@ function Projects() {
     {
       id: 'banking',
       industry: 'Banking',
-      icon: '🏦',
+      Icon: BankingIcon,
+      color: 'var(--accent-warm)',
       title: 'LoanStream: Commercial Lending Platform',
       subtitle: 'End-to-end loan origination and servicing system for commercial banking',
       overview: 'Designed a comprehensive commercial lending platform for a regional bank handling $2B+ in loan originations annually. The system manages the entire loan lifecycle from application intake to ongoing servicing.',
@@ -114,13 +129,13 @@ function Projects() {
     }
   ];
 
-  const industryColors = {
-    Healthcare: 'var(--accent-danger)',
-    Retail: 'var(--accent-success)',
-    Manufacturing: 'var(--accent-cyan)',
-    'E-commerce': 'var(--accent-secondary)',
-    Banking: 'var(--accent-warm)'
-  };
+  const projectIcons = [
+    { Icon: HealthcareIcon, id: 'healthcare', label: 'Healthcare', color: 'var(--accent-danger)' },
+    { Icon: RetailIcon, id: 'retail', label: 'Retail', color: 'var(--accent-success)' },
+    { Icon: ManufacturingIcon, id: 'manufacturing', label: 'Manufacturing', color: 'var(--accent-cyan)' },
+    { Icon: EcommerceIcon, id: 'ecommerce', label: 'E-commerce', color: 'var(--accent-secondary)' },
+    { Icon: BankingIcon, id: 'banking', label: 'Banking', color: 'var(--accent-warm)' },
+  ];
 
   return (
     <>
@@ -137,14 +152,15 @@ function Projects() {
 
       {/* Project Navigation */}
       <div className="project-nav">
-        {projects.map((project) => (
+        {projectIcons.map((item) => (
           <a 
-            key={project.id} 
-            href={`#${project.id}`} 
+            key={item.id} 
+            href={`#${item.id}`} 
             className="project-nav-item"
+            style={{ '--hover-color': item.color }}
           >
-            <span>{project.icon}</span>
-            <span>{project.industry}</span>
+            <item.Icon size={18} style={{ color: item.color }} />
+            <span>{item.label}</span>
           </a>
         ))}
       </div>
@@ -158,7 +174,9 @@ function Projects() {
           style={{ background: index % 2 === 1 ? 'var(--bg-secondary)' : 'transparent' }}
         >
           <div className="project-header">
-            <div className="project-icon">{project.icon}</div>
+            <div className="project-icon" style={{ background: `${project.color}15` }}>
+              <project.Icon size={32} style={{ color: project.color }} />
+            </div>
             <div>
               <span 
                 className={`industry-badge ${project.industry.toLowerCase().replace('-', '')}`}
@@ -214,9 +232,15 @@ function Projects() {
               <div className="sidebar-box">
                 <h4>Tools Used</h4>
                 <div className="tools-list">
-                  <span className="tool-tag airtable">Airtable</span>
-                  <span className="tool-tag figma">Figma</span>
-                  <span className="tool-tag miro">Miro</span>
+                  <span className="tool-tag airtable" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <AirtableLogo size={14} /> Airtable
+                  </span>
+                  <span className="tool-tag figma" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <FigmaLogo size={14} /> Figma
+                  </span>
+                  <span className="tool-tag miro" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <MiroLogo size={14} /> Miro
+                  </span>
                 </div>
               </div>
 
@@ -245,4 +269,3 @@ function Projects() {
 }
 
 export default Projects;
-

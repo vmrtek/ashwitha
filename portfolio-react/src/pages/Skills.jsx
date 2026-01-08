@@ -1,11 +1,20 @@
 import { Link } from 'react-router-dom';
+import { 
+  AirtableLogo, 
+  FigmaLogo, 
+  MiroLogo,
+  HealthcareIcon,
+  RetailIcon,
+  ManufacturingIcon,
+  BankingIcon
+} from '../components/Icons';
 
 function Skills() {
   const tools = [
     {
       name: 'Airtable',
       level: 'Expert',
-      icon: '📊',
+      Logo: AirtableLogo,
       description: 'Product roadmaps, feature dependencies, workflow visualization, linked records, filtered views, timeline & kanban boards',
       link: '/airtable',
       color: '#18bfff'
@@ -13,7 +22,7 @@ function Skills() {
     {
       name: 'Figma',
       level: 'Advanced',
-      icon: '🎨',
+      Logo: FigmaLogo,
       description: 'UI design, prototyping, design systems, component libraries, wireframing at all fidelity levels',
       link: '/wireframes',
       color: '#a259ff'
@@ -21,7 +30,7 @@ function Skills() {
     {
       name: 'Miro',
       level: 'Advanced',
-      icon: '🗺️',
+      Logo: MiroLogo,
       description: 'User flow mapping, brainstorming, collaborative workshops, journey mapping, affinity diagrams',
       color: '#ffd02f'
     }
@@ -47,10 +56,9 @@ function Skills() {
   ];
 
   const domains = [
-    { icon: '🏥', name: 'Healthcare', desc: 'Clinical workflows, hospital operations' },
-    { icon: '🛒', name: 'Retail', desc: 'Inventory management, POS systems' },
-    { icon: '🏭', name: 'Manufacturing', desc: 'Production monitoring, IoT dashboards' },
-    { icon: '🏦', name: 'Banking', desc: 'Loan origination, compliance tracking' },
+    { Icon: RetailIcon, name: 'Retail', desc: 'Inventory management, POS systems', color: 'var(--accent-success)' },
+    { Icon: ManufacturingIcon, name: 'Manufacturing', desc: 'Production monitoring, IoT dashboards', color: 'var(--accent-cyan)' },
+    { Icon: BankingIcon, name: 'Banking', desc: 'Loan origination, compliance tracking', color: 'var(--accent-warm)' },
   ];
 
   return (
@@ -77,7 +85,9 @@ function Skills() {
               className="card" 
               style={{ borderColor: `${tool.color}30` }}
             >
-              <span style={{ fontSize: '3rem', display: 'block', marginBottom: '1rem' }}>{tool.icon}</span>
+              <span style={{ display: 'block', marginBottom: '1rem' }}>
+                <tool.Logo size={64} />
+              </span>
               <span style={{ 
                 display: 'inline-block',
                 padding: '0.25rem 0.75rem',
@@ -139,7 +149,9 @@ function Skills() {
         <p className="section-desc">Industries where I've applied my design skills</p>
         
         <div className="card" style={{ borderLeft: '4px solid var(--accent-danger)', padding: '3rem', marginBottom: '2rem' }}>
-          <span style={{ fontSize: '2.5rem', display: 'block', marginBottom: '1rem' }}>🏥</span>
+          <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '60px', height: '60px', background: 'rgba(239, 68, 68, 0.1)', borderRadius: '12px', marginBottom: '1rem' }}>
+            <HealthcareIcon size={32} className="icon-healthcare" />
+          </span>
           <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Healthcare Systems</h3>
           <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '1rem' }}>
             Clinical workflows, hospital operations, patient management, administrative reporting, 
@@ -156,10 +168,12 @@ function Skills() {
           </div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
           {domains.map((domain) => (
             <div key={domain.name} className="card">
-              <span style={{ fontSize: '2rem', display: 'block', marginBottom: '0.75rem' }}>{domain.icon}</span>
+              <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '48px', height: '48px', background: `${domain.color}15`, borderRadius: '10px', marginBottom: '0.75rem' }}>
+                <domain.Icon size={24} style={{ color: domain.color }} />
+              </span>
               <h3 style={{ fontSize: '1rem', marginBottom: '0.5rem' }}>{domain.name}</h3>
               <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)' }}>{domain.desc}</p>
             </div>
@@ -181,4 +195,3 @@ function Skills() {
 }
 
 export default Skills;
-

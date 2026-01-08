@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { AirtableLogo, FigmaLogo, MiroLogo, WireframeLogo } from '../components/Icons';
 
 function Home() {
   return (
@@ -38,19 +39,19 @@ function Home() {
         <div className="hero-visual">
           <div className="floating-cards">
             <Link to="/airtable" className="float-card airtable">
-              <span className="card-icon">📊</span>
+              <AirtableLogo size={24} />
               <span>Airtable</span>
             </Link>
             <Link to="/skills" className="float-card figma">
-              <span className="card-icon">🎨</span>
+              <FigmaLogo size={24} />
               <span>Figma</span>
             </Link>
             <Link to="/skills" className="float-card miro">
-              <span className="card-icon">🗺️</span>
+              <MiroLogo size={24} />
               <span>Miro</span>
             </Link>
             <Link to="/wireframes" className="float-card wireframe">
-              <span className="card-icon">📐</span>
+              <WireframeLogo size={24} />
               <span>Wireframing</span>
             </Link>
           </div>
@@ -66,17 +67,17 @@ function Home() {
         </p>
         <div className="skills-grid">
           <Link to="/airtable" className="skill-card">
-            <span className="skill-icon">📊</span>
+            <span className="skill-icon"><AirtableLogo size={48} /></span>
             <h3>Airtable Visualization</h3>
             <p>Product roadmaps, feature dependencies, timeline views, and kanban boards</p>
           </Link>
           <Link to="/wireframes" className="skill-card">
-            <span className="skill-icon">📐</span>
+            <span className="skill-icon"><WireframeLogo size={48} /></span>
             <h3>Wireframing</h3>
             <p>Low to high fidelity wireframes with detailed annotations for engineering</p>
           </Link>
           <Link to="/projects" className="skill-card">
-            <span className="skill-icon">🗺️</span>
+            <span className="skill-icon"><MiroLogo size={48} /></span>
             <h3>User Flow Design</h3>
             <p>Journey mapping, process flows, and cross-functional collaboration</p>
           </Link>
@@ -119,4 +120,3 @@ function Home() {
 }
 
 export default Home;
-

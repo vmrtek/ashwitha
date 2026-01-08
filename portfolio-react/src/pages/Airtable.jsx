@@ -1,24 +1,37 @@
 import { Link } from 'react-router-dom';
+import { 
+  AirtableLogo, 
+  TimelineIcon, 
+  KanbanIcon, 
+  LinkIcon, 
+  FormulaIcon,
+  HealthcareIcon,
+  BankingIcon
+} from '../components/Icons';
 
 function Airtable() {
   const capabilities = [
     {
       title: 'Timeline Views',
+      Icon: TimelineIcon,
       description: 'Quarterly and annual roadmaps with drag-and-drop scheduling. Color-coded by team, priority, and status for instant visual comprehension.',
       features: ['Gantt-style project timelines', 'Milestone tracking', 'Resource allocation views', 'Release planning calendars']
     },
     {
       title: 'Kanban Boards',
+      Icon: KanbanIcon,
       description: 'Sprint-based workflow management with customizable columns. Each card displays key metrics and links to detailed specifications.',
       features: ['Status-based grouping', 'Quick status updates', 'WIP limits', 'Swimlane organization']
     },
     {
       title: 'Linked Records',
+      Icon: LinkIcon,
       description: 'Complex relationships between features, teams, people, and dependencies. One change propagates across all connected views.',
       features: ['Feature → Team mapping', 'Dependency chains', 'Owner assignments', 'Cross-project linking']
     },
     {
       title: 'Formulas & Rollups',
+      Icon: FormulaIcon,
       description: 'Automated calculations for progress tracking, priority scoring, and capacity planning without manual updates.',
       features: ['Progress percentages', 'Automatic status indicators', 'Team capacity rollups', 'Priority scoring']
     }
@@ -35,7 +48,7 @@ function Airtable() {
       <header className="tool-page-hero airtable">
         <div className="page-hero-content">
           <span className="tool-badge airtable">
-            <span className="tool-badge-icon">📊</span>
+            <AirtableLogo size={20} />
             <span>Expert Level</span>
           </span>
           <h1>Airtable</h1>
@@ -94,13 +107,9 @@ function Airtable() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '4rem',
                 direction: 'ltr'
               }}>
-                {index === 0 && '📊'}
-                {index === 1 && '📋'}
-                {index === 2 && '🔗'}
-                {index === 3 && '🧮'}
+                <cap.Icon size={80} style={{ color: '#18bfff', opacity: 0.8 }} />
               </div>
               <div style={{ direction: 'ltr' }}>
                 <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>{cap.title}</h3>
@@ -138,8 +147,9 @@ function Airtable() {
           
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             <div className="card" style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr', gap: '3rem', alignItems: 'center' }}>
-              <div style={{ height: '250px', background: 'var(--bg-card)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '3rem' }}>
-                🏥 📊
+              <div style={{ height: '250px', background: 'var(--bg-card)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
+                <HealthcareIcon size={64} style={{ color: 'var(--accent-danger)' }} />
+                <AirtableLogo size={64} />
               </div>
               <div>
                 <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Healthcare Product Roadmap</h3>
@@ -187,8 +197,9 @@ function Airtable() {
                   </div>
                 </div>
               </div>
-              <div style={{ height: '250px', background: 'var(--bg-card)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '3rem' }}>
-                🏦 ✅
+              <div style={{ height: '250px', background: 'var(--bg-card)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
+                <BankingIcon size={64} style={{ color: 'var(--accent-warm)' }} />
+                <AirtableLogo size={64} />
               </div>
             </div>
           </div>
@@ -240,4 +251,3 @@ function Airtable() {
 }
 
 export default Airtable;
-
