@@ -1,112 +1,286 @@
 import { Link } from 'react-router-dom';
-import { AirtableLogo, FigmaLogo, MiroLogo, WireframeLogo } from '../components/Icons';
+import { AirtableLogo, FigmaLogo, MiroLogo } from '../components/Icons';
+import { AirtableTimeline, AirtableKanban } from '../components/AirtableVisuals';
+import { WireframeHighFidelity } from '../components/WireframeVisuals';
+import { MiroUserFlow } from '../components/MiroVisuals';
 
 function Home() {
   return (
     <>
-      <header className="hero">
+      {/* Hero Section */}
+      <section className="hero">
         <div className="hero-content">
-          <div className="hero-intro">
-            <span className="greeting">Hello, I'm</span>
-            <h1>Ashwitha Reddy</h1>
-            <p className="hero-title">UX Designer</p>
-          </div>
-          <p className="hero-subtitle">
-            5 years of experience crafting visual product roadmaps, wireframes, and 
-            requirement visualizations for healthcare and enterprise platforms. I bridge 
-            the gap between product requirements and engineering teams through clear, 
-            actionable design artifacts.
+          <span className="hero-badge">UX Designer • 5 Years Experience</span>
+          <h1 className="hero-title">
+            <span className="hero-name">Ashwitha Reddy</span>
+            <span className="hero-tagline">Crafting Visual Product Roadmaps & Wireframes</span>
+          </h1>
+          <p className="hero-description">
+            I bridge the gap between product requirements and engineering by creating 
+            visual design artifacts that teams can act on immediately. Specialized in 
+            healthcare and enterprise platforms.
           </p>
-          <div className="hero-cta">
+          <div className="hero-actions">
             <Link to="/projects" className="btn-primary">View My Work</Link>
             <Link to="/contact" className="btn-secondary">Get in Touch</Link>
           </div>
-          <div className="hero-meta">
-            <div className="meta-item">
-              <span className="meta-value">5+</span>
-              <span className="meta-label">Years Experience</span>
-            </div>
-            <div className="meta-item">
-              <span className="meta-value">Healthcare</span>
-              <span className="meta-label">Domain Expertise</span>
-            </div>
-            <div className="meta-item">
-              <span className="meta-value">Enterprise</span>
-              <span className="meta-label">Internal Apps</span>
-            </div>
-          </div>
         </div>
-        <div className="hero-visual">
-          <div className="floating-cards">
-            <Link to="/airtable" className="float-card airtable">
-              <AirtableLogo size={24} />
-              <span>Airtable</span>
-            </Link>
-            <Link to="/skills" className="float-card figma">
-              <FigmaLogo size={24} />
-              <span>Figma</span>
-            </Link>
-            <Link to="/skills" className="float-card miro">
-              <MiroLogo size={24} />
-              <span>Miro</span>
-            </Link>
-            <Link to="/wireframes" className="float-card wireframe">
-              <WireframeLogo size={24} />
-              <span>Wireframing</span>
-            </Link>
-          </div>
-        </div>
-      </header>
 
-      {/* Quick Overview Section */}
-      <section className="section">
-        <h2 className="section-title">What I Do</h2>
-        <p className="section-desc">
-          I translate complex product requirements into visual design artifacts 
-          that engineering teams can act on immediately.
-        </p>
-        <div className="skills-grid">
-          <Link to="/airtable" className="skill-card">
-            <span className="skill-icon"><AirtableLogo size={48} /></span>
-            <h3>Airtable Visualization</h3>
-            <p>Product roadmaps, feature dependencies, timeline views, and kanban boards</p>
+        {/* Floating Tool Cards */}
+        <div className="hero-tools">
+          <Link to="/airtable" className="tool-card tool-airtable">
+            <AirtableLogo size={32} />
+            <span>Airtable</span>
+            <small>Roadmaps & Visualization</small>
           </Link>
-          <Link to="/wireframes" className="skill-card">
-            <span className="skill-icon"><WireframeLogo size={48} /></span>
-            <h3>Wireframing</h3>
-            <p>Low to high fidelity wireframes with detailed annotations for engineering</p>
+          <Link to="/wireframes" className="tool-card tool-figma">
+            <FigmaLogo size={32} />
+            <span>Figma</span>
+            <small>Wireframes & Prototypes</small>
           </Link>
-          <Link to="/projects" className="skill-card">
-            <span className="skill-icon"><MiroLogo size={48} /></span>
-            <h3>User Flow Design</h3>
-            <p>Journey mapping, process flows, and cross-functional collaboration</p>
+          <Link to="/wireframes" className="tool-card tool-miro">
+            <MiroLogo size={32} />
+            <span>Miro</span>
+            <small>User Flows & Research</small>
           </Link>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="section dark-section">
-        <div className="stats-grid">
-          <div className="stat-card">
-            <span className="stat-num">400+</span>
-            <span className="stat-label">Wireframes Created</span>
+      {/* Airtable Preview Section */}
+      <section style={{ padding: '4rem 0', background: 'var(--bg-secondary)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+                <AirtableLogo size={28} />
+                <span style={{ 
+                  padding: '0.25rem 0.75rem',
+                  background: 'rgba(24, 191, 255, 0.1)',
+                  borderRadius: '100px',
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  color: '#18bfff'
+                }}>AIRTABLE VISUALIZATION</span>
+              </div>
+              <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem' }}>
+                Product Roadmap Timeline
+              </h2>
+            </div>
+            <Link to="/airtable" className="btn-secondary" style={{ fontSize: '0.875rem' }}>
+              View All Airtable Work →
+            </Link>
           </div>
-          <div className="stat-card">
-            <span className="stat-num">25+</span>
-            <span className="stat-label">Projects Delivered</span>
+          <AirtableTimeline />
+        </div>
+      </section>
+
+      {/* Kanban Preview */}
+      <section style={{ padding: '4rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+                <AirtableLogo size={28} />
+                <span style={{ 
+                  padding: '0.25rem 0.75rem',
+                  background: 'rgba(24, 191, 255, 0.1)',
+                  borderRadius: '100px',
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  color: '#18bfff'
+                }}>AIRTABLE KANBAN</span>
+              </div>
+              <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem' }}>
+                Sprint Board Management
+              </h2>
+            </div>
           </div>
-          <div className="stat-card">
-            <span className="stat-num">5</span>
-            <span className="stat-label">Industries Covered</span>
-          </div>
-          <div className="stat-card">
-            <span className="stat-num">50+</span>
-            <span className="stat-label">Engineering Handoffs</span>
+          <AirtableKanban />
+        </div>
+      </section>
+
+      {/* Wireframe Preview */}
+      <section style={{ padding: '4rem 0', background: 'var(--bg-secondary)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+                <FigmaLogo size={28} />
+                <span style={{ 
+                  padding: '0.25rem 0.75rem',
+                  background: 'rgba(162, 89, 255, 0.1)',
+                  borderRadius: '100px',
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  color: '#a259ff'
+                }}>FIGMA WIREFRAMES</span>
+              </div>
+              <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', marginBottom: '1rem' }}>
+                High-Fidelity Mockups
+              </h2>
+              <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
+                Production-ready designs with complete component libraries, 
+                interaction specifications, and engineering handoff documentation.
+              </p>
+              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2rem' }}>
+                {['500+ wireframes delivered', 'Low to high fidelity', 'Detailed annotations', 'Responsive designs'].map((item) => (
+                  <li key={item} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)' }}>
+                    <span style={{ color: '#a259ff' }}>✓</span> {item}
+                  </li>
+                ))}
+              </ul>
+              <Link to="/wireframes" className="btn-primary">
+                View All Wireframes →
+              </Link>
+            </div>
+            <WireframeHighFidelity />
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Miro Preview */}
+      <section style={{ padding: '4rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+                <MiroLogo size={28} />
+                <span style={{ 
+                  padding: '0.25rem 0.75rem',
+                  background: 'rgba(255, 208, 47, 0.2)',
+                  borderRadius: '100px',
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  color: '#ffd02f'
+                }}>MIRO USER FLOWS</span>
+              </div>
+              <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem' }}>
+                User Flow Diagrams
+              </h2>
+            </div>
+            <Link to="/wireframes" className="btn-secondary" style={{ fontSize: '0.875rem' }}>
+              View All User Flows →
+            </Link>
+          </div>
+          <MiroUserFlow title="Patient Admission Flow" />
+        </div>
+      </section>
+
+      {/* Projects Preview */}
+      <section style={{ padding: '4rem 0', background: 'var(--bg-secondary)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', marginBottom: '0.5rem' }}>
+              Featured Projects
+            </h2>
+            <p style={{ color: 'var(--text-secondary)' }}>
+              Complex enterprise solutions across 5 industries
+            </p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '1rem' }}>
+            {[
+              { name: 'Healthcare', color: '#ef4444', icon: '🏥', desc: 'Patient Management' },
+              { name: 'Retail', color: '#10b981', icon: '🛒', desc: 'Inventory System' },
+              { name: 'Manufacturing', color: '#06b6d4', icon: '🏭', desc: 'Production Monitoring' },
+              { name: 'E-commerce', color: '#8b5cf6', icon: '🛍️', desc: 'Seller Platform' },
+              { name: 'Banking', color: '#f59e0b', icon: '🏦', desc: 'Loan Origination' },
+            ].map((project) => (
+              <Link 
+                key={project.name} 
+                to={`/projects#${project.name.toLowerCase().replace('-', '')}`}
+                style={{ 
+                  background: 'var(--bg-card)',
+                  padding: '1.5rem',
+                  borderRadius: '12px',
+                  border: '1px solid var(--border-subtle)',
+                  textAlign: 'center',
+                  textDecoration: 'none',
+                  color: 'inherit',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                <span style={{ fontSize: '2rem', display: 'block', marginBottom: '0.75rem' }}>{project.icon}</span>
+                <span style={{ 
+                  display: 'inline-block',
+                  padding: '0.25rem 0.5rem',
+                  background: `${project.color}15`,
+                  borderRadius: '4px',
+                  fontSize: '0.6875rem',
+                  fontWeight: 600,
+                  color: project.color,
+                  marginBottom: '0.5rem'
+                }}>{project.name}</span>
+                <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{project.desc}</p>
+              </Link>
+            ))}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+            <Link to="/projects" className="btn-primary">
+              View All Projects →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* What I Do */}
+      <section style={{ padding: '4rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', marginBottom: '0.5rem' }}>
+              What I Do
+            </h2>
+            <p style={{ color: 'var(--text-secondary)' }}>
+              Translating complex product requirements into visual design artifacts
+            </p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+            <Link to="/airtable" style={{ 
+              background: 'linear-gradient(135deg, rgba(24, 191, 255, 0.1) 0%, rgba(24, 191, 255, 0.02) 100%)',
+              padding: '2rem',
+              borderRadius: '16px',
+              border: '1px solid rgba(24, 191, 255, 0.2)',
+              textDecoration: 'none',
+              color: 'inherit'
+            }}>
+              <AirtableLogo size={40} />
+              <h3 style={{ fontSize: '1.25rem', margin: '1rem 0 0.5rem' }}>Airtable Visualization</h3>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>
+                Product roadmaps, feature dependencies, timeline views, and kanban boards
+              </p>
+            </Link>
+            <Link to="/wireframes" style={{ 
+              background: 'linear-gradient(135deg, rgba(162, 89, 255, 0.1) 0%, rgba(162, 89, 255, 0.02) 100%)',
+              padding: '2rem',
+              borderRadius: '16px',
+              border: '1px solid rgba(162, 89, 255, 0.2)',
+              textDecoration: 'none',
+              color: 'inherit'
+            }}>
+              <FigmaLogo size={40} />
+              <h3 style={{ fontSize: '1.25rem', margin: '1rem 0 0.5rem' }}>Wireframing</h3>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>
+                Low to high fidelity wireframes with detailed annotations for engineering
+              </p>
+            </Link>
+            <Link to="/wireframes" style={{ 
+              background: 'linear-gradient(135deg, rgba(255, 208, 47, 0.1) 0%, rgba(255, 208, 47, 0.02) 100%)',
+              padding: '2rem',
+              borderRadius: '16px',
+              border: '1px solid rgba(255, 208, 47, 0.2)',
+              textDecoration: 'none',
+              color: 'inherit'
+            }}>
+              <MiroLogo size={40} />
+              <h3 style={{ fontSize: '1.25rem', margin: '1rem 0 0.5rem' }}>User Flow Design</h3>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>
+                Journey mapping, process flows, and cross-functional collaboration
+              </p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
       <section className="cta-section">
         <h2>Ready to Work Together?</h2>
         <p>I'm always open to discussing new opportunities</p>
