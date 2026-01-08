@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FigmaLogo } from '../components/Icons';
+import { FigmaLogo, MiroLogo } from '../components/Icons';
 import { 
   WireframeLowFidelity, 
   WireframeMidFidelity, 
@@ -7,6 +7,8 @@ import {
   WireframeAnnotated 
 } from '../components/WireframeVisuals';
 import { MiroUserFlow, MiroJourneyMap, MiroAffinityDiagram } from '../components/MiroVisuals';
+import { MobileWireframe, TabletWireframe, DesignSystemPreview, ResponsiveShowcase } from '../components/MoreWireframeVisuals';
+import { MiroPersona, MiroEmpathyMap, MiroCompetitiveAnalysis, MiroSitemap, MiroUserStoryMap } from '../components/MoreMiroVisuals';
 
 function Wireframes() {
   return (
@@ -246,8 +248,216 @@ function Wireframes() {
         </div>
       </section>
 
-      {/* Deliverables */}
+      {/* Mobile Wireframes */}
       <section style={{ padding: '4rem 0', background: 'var(--bg-secondary)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+          <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
+            <span style={{ 
+              display: 'inline-block',
+              padding: '0.5rem 1rem',
+              background: 'rgba(162, 89, 255, 0.1)',
+              borderRadius: '100px',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              color: '#a259ff',
+              marginBottom: '1rem'
+            }}>MOBILE DESIGN</span>
+            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', marginBottom: '0.5rem' }}>
+              Mobile App Wireframes
+            </h2>
+            <p style={{ color: 'var(--text-secondary)' }}>
+              Native iOS app designs for on-the-go healthcare professionals
+            </p>
+          </div>
+          <MobileWireframe />
+        </div>
+      </section>
+
+      {/* Tablet Wireframe */}
+      <section style={{ padding: '4rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+          <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
+            <span style={{ 
+              display: 'inline-block',
+              padding: '0.5rem 1rem',
+              background: 'rgba(162, 89, 255, 0.1)',
+              borderRadius: '100px',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              color: '#a259ff',
+              marginBottom: '1rem'
+            }}>TABLET DESIGN</span>
+            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', marginBottom: '0.5rem' }}>
+              iPad Dashboard Wireframe
+            </h2>
+            <p style={{ color: 'var(--text-secondary)' }}>
+              Optimized for nurse stations and bedside use
+            </p>
+          </div>
+          <TabletWireframe />
+        </div>
+      </section>
+
+      {/* Design System */}
+      <section style={{ padding: '4rem 0', background: 'var(--bg-secondary)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+          <div style={{ marginBottom: '2rem' }}>
+            <span style={{ 
+              display: 'inline-block',
+              padding: '0.5rem 1rem',
+              background: 'rgba(162, 89, 255, 0.1)',
+              borderRadius: '100px',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              color: '#a259ff',
+              marginBottom: '1rem'
+            }}>FIGMA COMPONENT LIBRARY</span>
+            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', marginBottom: '0.5rem' }}>
+              Design System
+            </h2>
+            <p style={{ color: 'var(--text-secondary)' }}>
+              Comprehensive component library with colors, typography, buttons, and cards
+            </p>
+          </div>
+          <DesignSystemPreview />
+        </div>
+      </section>
+
+      {/* Responsive Showcase */}
+      <section style={{ padding: '4rem 0' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 2rem' }}>
+          <ResponsiveShowcase />
+        </div>
+      </section>
+
+      {/* Miro Persona */}
+      <section style={{ padding: '4rem 0', background: 'var(--bg-secondary)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+          <div style={{ marginBottom: '2rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+              <MiroLogo size={28} />
+              <span style={{ 
+                padding: '0.25rem 0.75rem',
+                background: 'rgba(255, 208, 47, 0.2)',
+                borderRadius: '100px',
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: '#ffd02f'
+              }}>USER RESEARCH</span>
+            </div>
+            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', marginBottom: '0.5rem' }}>
+              User Persona
+            </h2>
+            <p style={{ color: 'var(--text-secondary)' }}>
+              Detailed persona based on user research and stakeholder interviews
+            </p>
+          </div>
+          <MiroPersona />
+        </div>
+      </section>
+
+      {/* Empathy Map */}
+      <section style={{ padding: '4rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+          <div style={{ marginBottom: '2rem' }}>
+            <span style={{ 
+              display: 'inline-block',
+              padding: '0.5rem 1rem',
+              background: 'rgba(255, 208, 47, 0.2)',
+              borderRadius: '100px',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              color: '#ffd02f',
+              marginBottom: '1rem'
+            }}>MIRO EMPATHY MAPPING</span>
+            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', marginBottom: '0.5rem' }}>
+              Empathy Map
+            </h2>
+            <p style={{ color: 'var(--text-secondary)' }}>
+              Understanding user thoughts, feelings, actions, and pain points
+            </p>
+          </div>
+          <MiroEmpathyMap />
+        </div>
+      </section>
+
+      {/* Competitive Analysis */}
+      <section style={{ padding: '4rem 0', background: 'var(--bg-secondary)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+          <div style={{ marginBottom: '2rem' }}>
+            <span style={{ 
+              display: 'inline-block',
+              padding: '0.5rem 1rem',
+              background: 'rgba(255, 208, 47, 0.2)',
+              borderRadius: '100px',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              color: '#ffd02f',
+              marginBottom: '1rem'
+            }}>MARKET RESEARCH</span>
+            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', marginBottom: '0.5rem' }}>
+              Competitive Analysis
+            </h2>
+            <p style={{ color: 'var(--text-secondary)' }}>
+              Feature comparison matrix against industry competitors
+            </p>
+          </div>
+          <MiroCompetitiveAnalysis />
+        </div>
+      </section>
+
+      {/* Sitemap */}
+      <section style={{ padding: '4rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+          <div style={{ marginBottom: '2rem' }}>
+            <span style={{ 
+              display: 'inline-block',
+              padding: '0.5rem 1rem',
+              background: 'rgba(255, 208, 47, 0.2)',
+              borderRadius: '100px',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              color: '#ffd02f',
+              marginBottom: '1rem'
+            }}>INFORMATION ARCHITECTURE</span>
+            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', marginBottom: '0.5rem' }}>
+              Site Map
+            </h2>
+            <p style={{ color: 'var(--text-secondary)' }}>
+              Complete navigation structure and page hierarchy
+            </p>
+          </div>
+          <MiroSitemap />
+        </div>
+      </section>
+
+      {/* User Story Map */}
+      <section style={{ padding: '4rem 0', background: 'var(--bg-secondary)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+          <div style={{ marginBottom: '2rem' }}>
+            <span style={{ 
+              display: 'inline-block',
+              padding: '0.5rem 1rem',
+              background: 'rgba(255, 208, 47, 0.2)',
+              borderRadius: '100px',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              color: '#ffd02f',
+              marginBottom: '1rem'
+            }}>AGILE PLANNING</span>
+            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', marginBottom: '0.5rem' }}>
+              User Story Map
+            </h2>
+            <p style={{ color: 'var(--text-secondary)' }}>
+              Epic breakdown with activities, tasks, and prioritized user stories
+            </p>
+          </div>
+          <MiroUserStoryMap />
+        </div>
+      </section>
+
+      {/* Deliverables */}
+      <section style={{ padding: '4rem 0' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
           <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', marginBottom: '2rem', textAlign: 'center' }}>
             Key Deliverables

@@ -6,6 +6,13 @@ import {
   AirtableTable,
   AirtableLinkedRecords 
 } from '../components/AirtableVisuals';
+import {
+  AirtableGallery,
+  AirtableCalendar,
+  AirtableForm,
+  AirtableAutomation,
+  AirtableDashboard
+} from '../components/MoreAirtableVisuals';
 
 function Airtable() {
   return (
@@ -136,6 +143,127 @@ function Airtable() {
             </p>
           </div>
           <AirtableLinkedRecords />
+        </div>
+      </section>
+
+      {/* Gallery View */}
+      <section style={{ padding: '4rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+          <div style={{ marginBottom: '2rem' }}>
+            <span style={{ 
+              display: 'inline-block',
+              padding: '0.5rem 1rem',
+              background: 'rgba(24, 191, 255, 0.1)',
+              borderRadius: '100px',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              color: '#18bfff',
+              marginBottom: '1rem'
+            }}>LIVE VISUALIZATION</span>
+            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', marginBottom: '0.5rem' }}>
+              Gallery View - Feature Cards
+            </h2>
+            <p style={{ color: 'var(--text-secondary)' }}>
+              Visual card layout for stakeholder presentations and feature showcases
+            </p>
+          </div>
+          <AirtableGallery />
+        </div>
+      </section>
+
+      {/* Calendar View */}
+      <section style={{ padding: '4rem 0', background: 'var(--bg-secondary)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+          <div style={{ marginBottom: '2rem' }}>
+            <span style={{ 
+              display: 'inline-block',
+              padding: '0.5rem 1rem',
+              background: 'rgba(24, 191, 255, 0.1)',
+              borderRadius: '100px',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              color: '#18bfff',
+              marginBottom: '1rem'
+            }}>LIVE VISUALIZATION</span>
+            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', marginBottom: '0.5rem' }}>
+              Calendar View - Release Schedule
+            </h2>
+            <p style={{ color: 'var(--text-secondary)' }}>
+              Monthly view of sprints, reviews, and release milestones
+            </p>
+          </div>
+          <AirtableCalendar />
+        </div>
+      </section>
+
+      {/* Form View */}
+      <section style={{ padding: '4rem 0' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', alignItems: 'start' }}>
+            <div>
+              <span style={{ 
+                display: 'inline-block',
+                padding: '0.5rem 1rem',
+                background: 'rgba(24, 191, 255, 0.1)',
+                borderRadius: '100px',
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: '#18bfff',
+                marginBottom: '1rem'
+              }}>FORM VIEW</span>
+              <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', marginBottom: '0.5rem' }}>
+                Feature Request Form
+              </h2>
+              <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
+                Self-service forms for stakeholders to submit feature requests directly into the product backlog
+              </p>
+              <AirtableForm />
+            </div>
+            <div>
+              <span style={{ 
+                display: 'inline-block',
+                padding: '0.5rem 1rem',
+                background: 'rgba(245, 158, 11, 0.1)',
+                borderRadius: '100px',
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: '#f59e0b',
+                marginBottom: '1rem'
+              }}>AUTOMATIONS</span>
+              <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', marginBottom: '0.5rem' }}>
+                Workflow Automations
+              </h2>
+              <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
+                Automated triggers for notifications, status updates, and data synchronization
+              </p>
+              <AirtableAutomation />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Dashboard */}
+      <section style={{ padding: '4rem 0', background: 'var(--bg-secondary)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+          <div style={{ marginBottom: '2rem' }}>
+            <span style={{ 
+              display: 'inline-block',
+              padding: '0.5rem 1rem',
+              background: 'rgba(24, 191, 255, 0.1)',
+              borderRadius: '100px',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              color: '#18bfff',
+              marginBottom: '1rem'
+            }}>INTERFACE DESIGNER</span>
+            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', marginBottom: '0.5rem' }}>
+              Product Dashboard
+            </h2>
+            <p style={{ color: 'var(--text-secondary)' }}>
+              Custom interface with real-time metrics, charts, and activity feed
+            </p>
+          </div>
+          <AirtableDashboard />
         </div>
       </section>
 
