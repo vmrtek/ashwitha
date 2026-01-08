@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initUserFlowDiagram();
     initArtifacts();
     initProjectArtifacts();
+    initToolDeepDives();
     initScrollAnimations();
 });
 
@@ -1025,6 +1026,672 @@ function initArtifacts() {
                 <rect x="22" y="72" width="22" height="8" rx="1" fill="#64748b" opacity="0.4"/>
                 <rect x="22" y="92" width="16" height="8" rx="1" fill="#64748b" opacity="0.4"/>
                 <rect x="22" y="112" width="19" height="8" rx="1" fill="#64748b" opacity="0.4"/>
+            </svg>
+        `;
+    }
+}
+
+/* ============================================
+   Tool Deep Dive Visualizations
+   ============================================ */
+function initToolDeepDives() {
+    initAirtableDeepDive();
+    initFigmaDeepDive();
+    initMiroDeepDive();
+    initWireframingDeepDive();
+}
+
+function initAirtableDeepDive() {
+    // Timeline Capability
+    const timeline = document.getElementById('airtable-cap-timeline');
+    if (timeline) {
+        timeline.innerHTML = `
+            <svg viewBox="0 0 200 120" width="100%" height="100%" style="background: #0f0f17;">
+                <rect x="10" y="15" width="180" height="90" fill="#12121a" rx="4"/>
+                <text x="20" y="30" fill="#64748b" font-size="6">Q1</text>
+                <text x="60" y="30" fill="#64748b" font-size="6">Q2</text>
+                <text x="100" y="30" fill="#64748b" font-size="6">Q3</text>
+                <text x="140" y="30" fill="#64748b" font-size="6">Q4</text>
+                <rect x="25" y="40" width="50" height="10" rx="2" fill="#18bfff"/>
+                <rect x="55" y="55" width="60" height="10" rx="2" fill="#6366f1"/>
+                <rect x="40" y="70" width="40" height="10" rx="2" fill="#10b981"/>
+                <rect x="90" y="70" width="50" height="10" rx="2" fill="#10b981" opacity="0.6"/>
+                <rect x="70" y="85" width="70" height="10" rx="2" fill="#f59e0b"/>
+            </svg>
+        `;
+    }
+
+    // Kanban Capability
+    const kanban = document.getElementById('airtable-cap-kanban');
+    if (kanban) {
+        kanban.innerHTML = `
+            <svg viewBox="0 0 200 120" width="100%" height="100%" style="background: #0f0f17;">
+                <rect x="10" y="10" width="55" height="100" fill="#12121a" rx="4"/>
+                <text x="20" y="25" fill="#64748b" font-size="6">Backlog</text>
+                <rect x="15" y="32" width="45" height="18" rx="3" fill="#16161f" stroke="#64748b" stroke-width="0.5"/>
+                <rect x="15" y="54" width="45" height="18" rx="3" fill="#16161f" stroke="#64748b" stroke-width="0.5"/>
+                
+                <rect x="72" y="10" width="55" height="100" fill="#12121a" rx="4"/>
+                <text x="82" y="25" fill="#18bfff" font-size="6">Active</text>
+                <rect x="77" y="32" width="45" height="18" rx="3" fill="#16161f" stroke="#18bfff" stroke-width="1"/>
+                <rect x="77" y="54" width="45" height="18" rx="3" fill="#16161f" stroke="#18bfff" stroke-width="1"/>
+                
+                <rect x="134" y="10" width="55" height="100" fill="#12121a" rx="4"/>
+                <text x="144" y="25" fill="#10b981" font-size="6">Done</text>
+                <rect x="139" y="32" width="45" height="18" rx="3" fill="#16161f" stroke="#10b981" stroke-width="1"/>
+                <rect x="139" y="54" width="45" height="18" rx="3" fill="#16161f" stroke="#10b981" stroke-width="1"/>
+                <rect x="139" y="76" width="45" height="18" rx="3" fill="#16161f" stroke="#10b981" stroke-width="1"/>
+            </svg>
+        `;
+    }
+
+    // Linked Records Capability
+    const linked = document.getElementById('airtable-cap-linked');
+    if (linked) {
+        linked.innerHTML = `
+            <svg viewBox="0 0 200 120" width="100%" height="100%" style="background: #0f0f17;">
+                <rect x="10" y="35" width="50" height="50" rx="6" fill="#12121a" stroke="#18bfff" stroke-width="1.5"/>
+                <text x="22" y="62" fill="#18bfff" font-size="7">Features</text>
+                
+                <rect x="75" y="10" width="50" height="40" rx="6" fill="#12121a" stroke="#6366f1" stroke-width="1.5"/>
+                <text x="88" y="35" fill="#6366f1" font-size="7">Teams</text>
+                
+                <rect x="75" y="70" width="50" height="40" rx="6" fill="#12121a" stroke="#10b981" stroke-width="1.5"/>
+                <text x="85" y="95" fill="#10b981" font-size="7">People</text>
+                
+                <rect x="140" y="35" width="50" height="50" rx="6" fill="#12121a" stroke="#f59e0b" stroke-width="1.5"/>
+                <text x="155" y="62" fill="#f59e0b" font-size="7">Deps</text>
+                
+                <line x1="60" y1="50" x2="75" y2="30" stroke="#64748b" stroke-width="1"/>
+                <line x1="60" y1="70" x2="75" y2="90" stroke="#64748b" stroke-width="1"/>
+                <line x1="125" y1="60" x2="140" y2="60" stroke="#64748b" stroke-width="1"/>
+            </svg>
+        `;
+    }
+
+    // Formula Capability
+    const formula = document.getElementById('airtable-cap-formula');
+    if (formula) {
+        formula.innerHTML = `
+            <svg viewBox="0 0 200 120" width="100%" height="100%" style="background: #0f0f17;">
+                <rect x="10" y="10" width="180" height="100" fill="#12121a" rx="4"/>
+                <rect x="20" y="20" width="160" height="20" fill="#16161f" rx="3"/>
+                <text x="30" y="34" fill="#18bfff" font-size="7" font-family="monospace">ROLLUP(Progress)</text>
+                
+                <rect x="20" y="50" width="75" height="50" fill="#16161f" rx="4"/>
+                <text x="30" y="68" fill="#64748b" font-size="6">Progress</text>
+                <rect x="30" y="78" width="55" height="8" fill="#0f0f17" rx="2"/>
+                <rect x="30" y="78" width="40" height="8" fill="#10b981" rx="2"/>
+                <text x="30" y="96" fill="#10b981" font-size="8">73%</text>
+                
+                <rect x="105" y="50" width="75" height="50" fill="#16161f" rx="4"/>
+                <text x="115" y="68" fill="#64748b" font-size="6">Priority</text>
+                <rect x="115" y="76" width="30" height="14" rx="7" fill="#ef4444" opacity="0.3"/>
+                <text x="123" y="86" fill="#ef4444" font-size="6">High</text>
+            </svg>
+        `;
+    }
+
+    // Airtable Example 1
+    const example1 = document.getElementById('airtable-example-1');
+    if (example1) {
+        example1.innerHTML = `
+            <svg viewBox="0 0 400 220" width="100%" height="100%" style="background: #0f0f17;">
+                <rect x="10" y="10" width="380" height="200" fill="#12121a" rx="6"/>
+                <rect x="15" y="15" width="80" height="18" rx="3" fill="#18bfff"/>
+                <text x="25" y="28" fill="white" font-size="7">Timeline View</text>
+                
+                <text x="100" y="45" fill="#64748b" font-size="7">Q1 2025</text>
+                <text x="180" y="45" fill="#64748b" font-size="7">Q2 2025</text>
+                <text x="260" y="45" fill="#64748b" font-size="7">Q3 2025</text>
+                <text x="340" y="45" fill="#64748b" font-size="7">Q4</text>
+                
+                <text x="25" y="70" fill="#94a3b8" font-size="6">Admissions</text>
+                <rect x="100" y="58" width="100" height="16" rx="3" fill="#ef4444"/>
+                
+                <text x="25" y="95" fill="#94a3b8" font-size="6">Care Coord</text>
+                <rect x="150" y="83" width="120" height="16" rx="3" fill="#6366f1"/>
+                
+                <text x="25" y="120" fill="#94a3b8" font-size="6">Discharge</text>
+                <rect x="120" y="108" width="80" height="16" rx="3" fill="#10b981"/>
+                <rect x="220" y="108" width="90" height="16" rx="3" fill="#10b981" opacity="0.6"/>
+                
+                <text x="25" y="145" fill="#94a3b8" font-size="6">Reporting</text>
+                <rect x="180" y="133" width="130" height="16" rx="3" fill="#f59e0b"/>
+                
+                <text x="25" y="170" fill="#94a3b8" font-size="6">Mobile App</text>
+                <rect x="260" y="158" width="100" height="16" rx="3" fill="#8b5cf6"/>
+                
+                <rect x="25" y="185" width="120" height="18" fill="#16161f" rx="3"/>
+                <text x="35" y="197" fill="#64748b" font-size="6">150 Features · 8 Modules</text>
+            </svg>
+        `;
+    }
+
+    // Airtable Example 2
+    const example2 = document.getElementById('airtable-example-2');
+    if (example2) {
+        example2.innerHTML = `
+            <svg viewBox="0 0 400 220" width="100%" height="100%" style="background: #0f0f17;">
+                <rect x="10" y="10" width="380" height="200" fill="#12121a" rx="6"/>
+                <rect x="15" y="15" width="100" height="18" rx="3" fill="#18bfff"/>
+                <text x="25" y="28" fill="white" font-size="7">Compliance Tracker</text>
+                
+                <rect x="20" y="45" width="360" height="20" fill="#16161f" rx="3"/>
+                <text x="35" y="58" fill="#64748b" font-size="6">Requirement</text>
+                <text x="150" y="58" fill="#64748b" font-size="6">Status</text>
+                <text x="250" y="58" fill="#64748b" font-size="6">Features Linked</text>
+                
+                <rect x="20" y="70" width="360" height="25" fill="#16161f" rx="3"/>
+                <text x="35" y="87" fill="#f8fafc" font-size="7">SOX Compliance</text>
+                <rect x="150" y="77" width="40" height="12" rx="6" fill="#10b981" opacity="0.3"/>
+                <text x="160" y="87" fill="#10b981" font-size="6">Done</text>
+                <text x="250" y="87" fill="#6366f1" font-size="7">12 linked</text>
+                
+                <rect x="20" y="100" width="360" height="25" fill="#16161f" rx="3"/>
+                <text x="35" y="117" fill="#f8fafc" font-size="7">FDIC Requirements</text>
+                <rect x="150" y="107" width="55" height="12" rx="6" fill="#f59e0b" opacity="0.3"/>
+                <text x="157" y="117" fill="#f59e0b" font-size="6">In Progress</text>
+                <text x="250" y="117" fill="#6366f1" font-size="7">8 linked</text>
+                
+                <rect x="20" y="130" width="360" height="25" fill="#16161f" rx="3"/>
+                <text x="35" y="147" fill="#f8fafc" font-size="7">BSA/AML</text>
+                <rect x="150" y="137" width="40" height="12" rx="6" fill="#10b981" opacity="0.3"/>
+                <text x="160" y="147" fill="#10b981" font-size="6">Done</text>
+                <text x="250" y="147" fill="#6366f1" font-size="7">15 linked</text>
+                
+                <rect x="20" y="165" width="360" height="35" fill="#6366f1" opacity="0.1" rx="3"/>
+                <text x="35" y="187" fill="#6366f1" font-size="8">35 total linked records · 100% Audit Pass</text>
+            </svg>
+        `;
+    }
+}
+
+function initFigmaDeepDive() {
+    // Lo-Fi Capability
+    const lofi = document.getElementById('figma-cap-lofi');
+    if (lofi) {
+        lofi.innerHTML = `
+            <svg viewBox="0 0 200 120" width="100%" height="100%" style="background: #1e1e2a;">
+                <rect x="10" y="10" width="180" height="100" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4"/>
+                <rect x="20" y="20" width="50" height="10" fill="#64748b" opacity="0.4"/>
+                <rect x="20" y="35" width="160" height="25" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="3"/>
+                <rect x="20" y="65" width="75" height="35" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="3"/>
+                <rect x="105" y="65" width="75" height="35" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="3"/>
+                <circle cx="175" cy="25" r="8" fill="none" stroke="#a259ff" stroke-width="1"/>
+                <text x="175" y="28" fill="#a259ff" font-size="6" text-anchor="middle">?</text>
+            </svg>
+        `;
+    }
+
+    // Mid-Fi Capability
+    const midfi = document.getElementById('figma-cap-midfi');
+    if (midfi) {
+        midfi.innerHTML = `
+            <svg viewBox="0 0 200 120" width="100%" height="100%" style="background: #12121a;">
+                <rect x="10" y="10" width="180" height="100" fill="#16161f" rx="4"/>
+                <rect x="18" y="18" width="60" height="12" fill="#f8fafc" rx="2"/>
+                <rect x="18" y="38" width="164" height="30" fill="#1a1a26" rx="3"/>
+                <rect x="25" y="45" width="80" height="6" fill="#64748b" opacity="0.4"/>
+                <rect x="25" y="55" width="60" height="6" fill="#64748b" opacity="0.3"/>
+                <rect x="18" y="75" width="78" height="28" fill="#1a1a26" rx="3"/>
+                <rect x="104" y="75" width="78" height="28" fill="#a259ff" opacity="0.2" rx="3"/>
+            </svg>
+        `;
+    }
+
+    // Hi-Fi Capability
+    const hifi = document.getElementById('figma-cap-hifi');
+    if (hifi) {
+        hifi.innerHTML = `
+            <svg viewBox="0 0 200 120" width="100%" height="100%" style="background: #0a0a0f;">
+                <rect x="10" y="10" width="180" height="100" fill="#12121a" rx="6"/>
+                <rect x="15" y="15" width="60" height="16" rx="3" fill="#a259ff"/>
+                <text x="25" y="27" fill="white" font-size="7">Dashboard</text>
+                <rect x="155" y="17" width="30" height="12" rx="6" fill="#10b981"/>
+                <rect x="18" y="38" width="174" height="65" fill="#16161f" rx="4"/>
+                <rect x="25" y="45" width="50" height="50" fill="#a259ff" opacity="0.2" rx="4"/>
+                <rect x="82" y="45" width="50" height="50" fill="#10b981" opacity="0.2" rx="4"/>
+                <rect x="139" y="45" width="46" height="50" fill="#f59e0b" opacity="0.2" rx="4"/>
+            </svg>
+        `;
+    }
+
+    // Annotations Capability
+    const annotations = document.getElementById('figma-cap-annotations');
+    if (annotations) {
+        annotations.innerHTML = `
+            <svg viewBox="0 0 200 120" width="100%" height="100%" style="background: #0f0f17;">
+                <rect x="10" y="10" width="120" height="100" fill="#12121a" rx="4"/>
+                <rect x="18" y="18" width="80" height="12" fill="#16161f" rx="2"/>
+                <rect x="18" y="35" width="100" height="30" fill="#16161f" rx="3"/>
+                <rect x="18" y="70" width="45" height="15" fill="#a259ff" opacity="0.3" rx="3"/>
+                <rect x="68" y="70" width="45" height="15" fill="#16161f" rx="3"/>
+                
+                <circle cx="155" cy="35" r="12" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
+                <text x="155" y="39" fill="#f59e0b" font-size="9" text-anchor="middle">1</text>
+                <line x1="143" y1="35" x2="118" y2="28" stroke="#f59e0b" stroke-width="1" stroke-dasharray="2"/>
+                
+                <circle cx="170" cy="70" r="12" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
+                <text x="170" y="74" fill="#f59e0b" font-size="9" text-anchor="middle">2</text>
+                <line x1="158" y1="70" x2="118" y2="50" stroke="#f59e0b" stroke-width="1" stroke-dasharray="2"/>
+            </svg>
+        `;
+    }
+
+    // Figma Example 1
+    const example1 = document.getElementById('figma-example-1');
+    if (example1) {
+        example1.innerHTML = `
+            <svg viewBox="0 0 400 220" width="100%" height="100%" style="background: #0a0a0f;">
+                <rect x="10" y="10" width="380" height="200" fill="#12121a" rx="6"/>
+                
+                <!-- Control Room Dashboard -->
+                <rect x="20" y="20" width="180" height="90" fill="#16161f" rx="4"/>
+                <text x="30" y="38" fill="#06b6d4" font-size="8">Production Line 1</text>
+                <rect x="30" y="48" width="150" height="8" fill="#10b981" rx="2"/>
+                <text x="30" y="75" fill="#f8fafc" font-size="14">94.2%</text>
+                <text x="85" y="75" fill="#64748b" font-size="8">OEE</text>
+                
+                <rect x="210" y="20" width="170" height="90" fill="#16161f" rx="4"/>
+                <text x="220" y="38" fill="#06b6d4" font-size="8">Production Line 2</text>
+                <rect x="220" y="48" width="100" height="8" fill="#f59e0b" rx="2"/>
+                <text x="220" y="75" fill="#f8fafc" font-size="14">78.5%</text>
+                <text x="275" y="75" fill="#64748b" font-size="8">OEE</text>
+                
+                <rect x="20" y="120" width="360" height="80" fill="#16161f" rx="4"/>
+                <text x="30" y="140" fill="#64748b" font-size="7">Timeline - 24 Hour View</text>
+                <rect x="30" y="150" width="60" height="12" fill="#10b981" rx="2"/>
+                <rect x="95" y="150" width="80" height="12" fill="#6366f1" rx="2"/>
+                <rect x="180" y="150" width="40" height="12" fill="#f59e0b" rx="2"/>
+                <rect x="225" y="150" width="60" height="12" fill="#ef4444" rx="2"/>
+                <rect x="30" y="170" width="90" height="12" fill="#8b5cf6" rx="2"/>
+                <rect x="125" y="170" width="70" height="12" fill="#06b6d4" rx="2"/>
+            </svg>
+        `;
+    }
+
+    // Figma Example 2
+    const example2 = document.getElementById('figma-example-2');
+    if (example2) {
+        example2.innerHTML = `
+            <svg viewBox="0 0 400 220" width="100%" height="100%" style="background: #0a0a0f;">
+                <rect x="10" y="10" width="380" height="200" fill="#12121a" rx="6"/>
+                
+                <!-- Seller Portal -->
+                <rect x="20" y="20" width="360" height="35" fill="#16161f" rx="4"/>
+                <rect x="30" y="28" width="70" height="18" fill="#10b981" opacity="0.2" rx="3"/>
+                <text x="42" y="41" fill="#10b981" font-size="8">Seller Hub</text>
+                <circle cx="350" cy="37" r="12" fill="#a259ff"/>
+                
+                <rect x="20" y="65" width="115" height="60" fill="#16161f" rx="4"/>
+                <text x="30" y="85" fill="#f8fafc" font-size="12">$45.2K</text>
+                <text x="30" y="100" fill="#64748b" font-size="7">This Month</text>
+                <rect x="30" y="108" width="90" height="6" fill="#10b981" rx="2"/>
+                
+                <rect x="145" y="65" width="115" height="60" fill="#16161f" rx="4"/>
+                <text x="155" y="85" fill="#10b981" font-size="12">847</text>
+                <text x="155" y="100" fill="#64748b" font-size="7">Orders</text>
+                
+                <rect x="270" y="65" width="110" height="60" fill="#16161f" rx="4"/>
+                <text x="280" y="85" fill="#f59e0b" font-size="12">4.8 ★</text>
+                <text x="280" y="100" fill="#64748b" font-size="7">Rating</text>
+                
+                <rect x="20" y="135" width="360" height="65" fill="#16161f" rx="4"/>
+                <text x="30" y="155" fill="#f8fafc" font-size="8">Recent Orders</text>
+                <rect x="30" y="165" width="340" height="25" fill="#0f0f17" rx="3"/>
+            </svg>
+        `;
+    }
+}
+
+function initMiroDeepDive() {
+    // Journey Mapping Capability
+    const journey = document.getElementById('miro-cap-journey');
+    if (journey) {
+        journey.innerHTML = `
+            <svg viewBox="0 0 200 120" width="100%" height="100%" style="background: #12121a;">
+                <rect x="10" y="10" width="180" height="100" fill="#16161f" rx="4"/>
+                
+                <circle cx="35" cy="50" r="12" fill="#ffd02f" opacity="0.3" stroke="#ffd02f" stroke-width="1"/>
+                <text x="35" y="54" fill="#ffd02f" font-size="7" text-anchor="middle">1</text>
+                
+                <line x1="47" y1="50" x2="65" y2="50" stroke="#64748b" stroke-width="1"/>
+                
+                <circle cx="80" cy="50" r="12" fill="#ffd02f" opacity="0.3" stroke="#ffd02f" stroke-width="1"/>
+                <text x="80" y="54" fill="#ffd02f" font-size="7" text-anchor="middle">2</text>
+                
+                <line x1="92" y1="50" x2="110" y2="50" stroke="#64748b" stroke-width="1"/>
+                
+                <circle cx="125" cy="50" r="12" fill="#ef4444" opacity="0.3" stroke="#ef4444" stroke-width="1"/>
+                <text x="125" y="54" fill="#ef4444" font-size="7" text-anchor="middle">3</text>
+                
+                <line x1="137" y1="50" x2="155" y2="50" stroke="#64748b" stroke-width="1"/>
+                
+                <circle cx="170" cy="50" r="12" fill="#10b981" opacity="0.3" stroke="#10b981" stroke-width="1"/>
+                <text x="170" y="54" fill="#10b981" font-size="7" text-anchor="middle">4</text>
+                
+                <text x="35" y="80" fill="#64748b" font-size="5" text-anchor="middle">Aware</text>
+                <text x="80" y="80" fill="#64748b" font-size="5" text-anchor="middle">Consider</text>
+                <text x="125" y="80" fill="#64748b" font-size="5" text-anchor="middle">Pain</text>
+                <text x="170" y="80" fill="#64748b" font-size="5" text-anchor="middle">Resolve</text>
+            </svg>
+        `;
+    }
+
+    // Affinity Mapping
+    const affinity = document.getElementById('miro-cap-affinity');
+    if (affinity) {
+        affinity.innerHTML = `
+            <svg viewBox="0 0 200 120" width="100%" height="100%" style="background: #12121a;">
+                <rect x="10" y="10" width="180" height="100" fill="#16161f" rx="4"/>
+                
+                <rect x="20" y="20" width="25" height="20" rx="2" fill="#ffd02f" opacity="0.6"/>
+                <rect x="50" y="20" width="25" height="20" rx="2" fill="#ffd02f" opacity="0.6"/>
+                <rect x="80" y="20" width="25" height="20" rx="2" fill="#ffd02f" opacity="0.6"/>
+                
+                <rect x="115" y="20" width="25" height="20" rx="2" fill="#ff6b6b" opacity="0.6"/>
+                <rect x="145" y="20" width="25" height="20" rx="2" fill="#ff6b6b" opacity="0.6"/>
+                
+                <rect x="20" y="50" width="25" height="20" rx="2" fill="#4ecdc4" opacity="0.6"/>
+                <rect x="50" y="50" width="25" height="20" rx="2" fill="#4ecdc4" opacity="0.6"/>
+                <rect x="80" y="50" width="25" height="20" rx="2" fill="#4ecdc4" opacity="0.6"/>
+                <rect x="110" y="50" width="25" height="20" rx="2" fill="#4ecdc4" opacity="0.6"/>
+                
+                <rect x="20" y="80" width="25" height="20" rx="2" fill="#a78bfa" opacity="0.6"/>
+                <rect x="50" y="80" width="25" height="20" rx="2" fill="#a78bfa" opacity="0.6"/>
+            </svg>
+        `;
+    }
+
+    // Workshop Facilitation
+    const workshop = document.getElementById('miro-cap-workshop');
+    if (workshop) {
+        workshop.innerHTML = `
+            <svg viewBox="0 0 200 120" width="100%" height="100%" style="background: #12121a;">
+                <rect x="10" y="10" width="180" height="100" fill="#16161f" rx="4"/>
+                
+                <circle cx="60" cy="45" r="15" fill="#ffd02f" opacity="0.2" stroke="#ffd02f" stroke-width="1"/>
+                <circle cx="100" cy="45" r="15" fill="#ffd02f" opacity="0.2" stroke="#ffd02f" stroke-width="1"/>
+                <circle cx="140" cy="45" r="15" fill="#ffd02f" opacity="0.2" stroke="#ffd02f" stroke-width="1"/>
+                
+                <circle cx="80" cy="80" r="15" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="1"/>
+                <circle cx="120" cy="80" r="15" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="1"/>
+                
+                <line x1="60" y1="60" x2="80" y2="65" stroke="#64748b" stroke-width="1" stroke-dasharray="2"/>
+                <line x1="100" y1="60" x2="100" y2="65" stroke="#64748b" stroke-width="1" stroke-dasharray="2"/>
+                <line x1="140" y1="60" x2="120" y2="65" stroke="#64748b" stroke-width="1" stroke-dasharray="2"/>
+            </svg>
+        `;
+    }
+
+    // Process Flow
+    const flow = document.getElementById('miro-cap-flow');
+    if (flow) {
+        flow.innerHTML = `
+            <svg viewBox="0 0 200 120" width="100%" height="100%" style="background: #12121a;">
+                <rect x="10" y="10" width="180" height="100" fill="#16161f" rx="4"/>
+                
+                <rect x="20" y="30" width="40" height="25" rx="3" fill="#ffd02f" opacity="0.3" stroke="#ffd02f" stroke-width="1"/>
+                <text x="40" y="46" fill="#ffd02f" font-size="6" text-anchor="middle">Start</text>
+                
+                <line x1="60" y1="42" x2="75" y2="42" stroke="#64748b" stroke-width="1"/>
+                
+                <polygon points="95,30 110,42 95,55 80,42" fill="#6366f1" opacity="0.3" stroke="#6366f1" stroke-width="1"/>
+                <text x="95" y="45" fill="#6366f1" font-size="5" text-anchor="middle">?</text>
+                
+                <line x1="110" y1="42" x2="125" y2="42" stroke="#64748b" stroke-width="1"/>
+                
+                <rect x="125" y="30" width="40" height="25" rx="3" fill="#10b981" opacity="0.3" stroke="#10b981" stroke-width="1"/>
+                <text x="145" y="46" fill="#10b981" font-size="6" text-anchor="middle">Yes</text>
+                
+                <line x1="95" y1="55" x2="95" y2="75" stroke="#64748b" stroke-width="1"/>
+                
+                <rect x="75" y="75" width="40" height="25" rx="3" fill="#ef4444" opacity="0.3" stroke="#ef4444" stroke-width="1"/>
+                <text x="95" y="91" fill="#ef4444" font-size="6" text-anchor="middle">No</text>
+            </svg>
+        `;
+    }
+
+    // Miro Example 1
+    const example1 = document.getElementById('miro-example-1');
+    if (example1) {
+        example1.innerHTML = `
+            <svg viewBox="0 0 400 220" width="100%" height="100%" style="background: #12121a;">
+                <rect x="10" y="10" width="380" height="200" fill="#16161f" rx="6"/>
+                
+                <text x="25" y="35" fill="#ffd02f" font-size="10" font-weight="500">Patient Admission Journey</text>
+                
+                <circle cx="50" cy="80" r="18" fill="#ffd02f" opacity="0.3" stroke="#ffd02f" stroke-width="1.5"/>
+                <text x="50" y="85" fill="#ffd02f" font-size="8" text-anchor="middle">Arrive</text>
+                
+                <line x1="68" y1="80" x2="95" y2="80" stroke="#64748b" stroke-width="1.5"/>
+                
+                <circle cx="115" cy="80" r="18" fill="#ffd02f" opacity="0.3" stroke="#ffd02f" stroke-width="1.5"/>
+                <text x="115" y="85" fill="#ffd02f" font-size="8" text-anchor="middle">Triage</text>
+                
+                <line x1="133" y1="80" x2="160" y2="80" stroke="#64748b" stroke-width="1.5"/>
+                
+                <circle cx="180" cy="80" r="18" fill="#ef4444" opacity="0.3" stroke="#ef4444" stroke-width="1.5"/>
+                <text x="180" y="85" fill="#ef4444" font-size="8" text-anchor="middle">Wait</text>
+                
+                <line x1="198" y1="80" x2="225" y2="80" stroke="#64748b" stroke-width="1.5"/>
+                
+                <circle cx="245" cy="80" r="18" fill="#6366f1" opacity="0.3" stroke="#6366f1" stroke-width="1.5"/>
+                <text x="245" y="85" fill="#6366f1" font-size="8" text-anchor="middle">Admit</text>
+                
+                <line x1="263" y1="80" x2="290" y2="80" stroke="#64748b" stroke-width="1.5"/>
+                
+                <circle cx="310" cy="80" r="18" fill="#10b981" opacity="0.3" stroke="#10b981" stroke-width="1.5"/>
+                <text x="310" y="85" fill="#10b981" font-size="8" text-anchor="middle">Care</text>
+                
+                <line x1="328" y1="80" x2="355" y2="80" stroke="#64748b" stroke-width="1.5"/>
+                
+                <circle cx="370" cy="80" r="18" fill="#10b981" opacity="0.3" stroke="#10b981" stroke-width="1.5"/>
+                <text x="370" y="78" fill="#10b981" font-size="6" text-anchor="middle">Dis-</text>
+                <text x="370" y="87" fill="#10b981" font-size="6" text-anchor="middle">charge</text>
+                
+                <rect x="165" y="115" width="50" height="25" rx="4" fill="#ef4444" opacity="0.2"/>
+                <text x="190" y="125" fill="#ef4444" font-size="6" text-anchor="middle">Pain Point</text>
+                <text x="190" y="135" fill="#ef4444" font-size="5" text-anchor="middle">45 min delay</text>
+                
+                <rect x="25" y="165" width="360" height="35" fill="#0f0f17" rx="4"/>
+                <text x="40" y="185" fill="#64748b" font-size="8">12 Pain Points Identified · 8 Improvement Opportunities</text>
+            </svg>
+        `;
+    }
+
+    // Miro Example 2
+    const example2 = document.getElementById('miro-example-2');
+    if (example2) {
+        example2.innerHTML = `
+            <svg viewBox="0 0 400 220" width="100%" height="100%" style="background: #12121a;">
+                <rect x="10" y="10" width="380" height="200" fill="#16161f" rx="6"/>
+                
+                <text x="25" y="35" fill="#ffd02f" font-size="10" font-weight="500">Affinity Mapping - Store Associate Discovery</text>
+                
+                <!-- Cluster 1 -->
+                <rect x="25" y="50" width="85" height="80" rx="4" fill="#0f0f17" stroke="#ffd02f" stroke-width="1"/>
+                <text x="35" y="68" fill="#ffd02f" font-size="7">Inventory Issues</text>
+                <rect x="32" y="78" width="30" height="15" rx="2" fill="#ffd02f" opacity="0.4"/>
+                <rect x="67" y="78" width="30" height="15" rx="2" fill="#ffd02f" opacity="0.4"/>
+                <rect x="32" y="98" width="30" height="15" rx="2" fill="#ffd02f" opacity="0.4"/>
+                <rect x="67" y="98" width="30" height="15" rx="2" fill="#ffd02f" opacity="0.4"/>
+                
+                <!-- Cluster 2 -->
+                <rect x="120" y="50" width="85" height="80" rx="4" fill="#0f0f17" stroke="#ff6b6b" stroke-width="1"/>
+                <text x="130" y="68" fill="#ff6b6b" font-size="7">Training Gaps</text>
+                <rect x="127" y="78" width="30" height="15" rx="2" fill="#ff6b6b" opacity="0.4"/>
+                <rect x="162" y="78" width="30" height="15" rx="2" fill="#ff6b6b" opacity="0.4"/>
+                <rect x="127" y="98" width="30" height="15" rx="2" fill="#ff6b6b" opacity="0.4"/>
+                
+                <!-- Cluster 3 -->
+                <rect x="215" y="50" width="85" height="80" rx="4" fill="#0f0f17" stroke="#4ecdc4" stroke-width="1"/>
+                <text x="225" y="68" fill="#4ecdc4" font-size="7">System Speed</text>
+                <rect x="222" y="78" width="30" height="15" rx="2" fill="#4ecdc4" opacity="0.4"/>
+                <rect x="257" y="78" width="30" height="15" rx="2" fill="#4ecdc4" opacity="0.4"/>
+                <rect x="222" y="98" width="30" height="15" rx="2" fill="#4ecdc4" opacity="0.4"/>
+                <rect x="257" y="98" width="30" height="15" rx="2" fill="#4ecdc4" opacity="0.4"/>
+                
+                <!-- Cluster 4 -->
+                <rect x="310" y="50" width="70" height="80" rx="4" fill="#0f0f17" stroke="#a78bfa" stroke-width="1"/>
+                <text x="320" y="68" fill="#a78bfa" font-size="7">Mobile</text>
+                <rect x="317" y="78" width="25" height="15" rx="2" fill="#a78bfa" opacity="0.4"/>
+                <rect x="347" y="78" width="25" height="15" rx="2" fill="#a78bfa" opacity="0.4"/>
+                
+                <rect x="25" y="145" width="355" height="55" fill="#0f0f17" rx="4"/>
+                <text x="40" y="170" fill="#64748b" font-size="8">30+ Store Managers · 200+ Insights · 15 Actionable Themes</text>
+                <text x="40" y="188" fill="#10b981" font-size="7">Direct input into product roadmap prioritization</text>
+            </svg>
+        `;
+    }
+}
+
+function initWireframingDeepDive() {
+    // Lo-Fi Wireframe
+    const lofi = document.getElementById('wireframe-lofi');
+    if (lofi) {
+        lofi.innerHTML = `
+            <svg viewBox="0 0 250 200" width="100%" height="100%" style="background: #1e1e2a;">
+                <rect x="10" y="10" width="230" height="180" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4"/>
+                
+                <rect x="20" y="20" width="80" height="15" fill="#64748b" opacity="0.4"/>
+                <rect x="180" y="22" width="50" height="10" fill="#64748b" opacity="0.3"/>
+                
+                <rect x="20" y="45" width="210" height="40" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="3"/>
+                <rect x="30" y="55" width="100" height="8" fill="#64748b" opacity="0.3"/>
+                <rect x="30" y="68" width="70" height="8" fill="#64748b" opacity="0.2"/>
+                
+                <rect x="20" y="95" width="100" height="85" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="3"/>
+                <rect x="130" y="95" width="100" height="85" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="3"/>
+                
+                <circle cx="220" cy="55" r="10" fill="none" stroke="#6366f1" stroke-width="1"/>
+                <text x="220" y="58" fill="#6366f1" font-size="8" text-anchor="middle">?</text>
+            </svg>
+        `;
+    }
+
+    // Mid-Fi Wireframe
+    const midfi = document.getElementById('wireframe-midfi');
+    if (midfi) {
+        midfi.innerHTML = `
+            <svg viewBox="0 0 250 200" width="100%" height="100%" style="background: #12121a;">
+                <rect x="10" y="10" width="230" height="180" fill="#16161f" rx="6"/>
+                
+                <rect x="18" y="18" width="90" height="18" rx="3" fill="#f8fafc"/>
+                <rect x="195" y="20" width="35" height="14" rx="7" fill="#6366f1"/>
+                
+                <rect x="18" y="45" width="214" height="45" fill="#1a1a26" rx="4"/>
+                <rect x="28" y="55" width="120" height="10" rx="2" fill="#64748b" opacity="0.4"/>
+                <rect x="28" y="72" width="80" height="8" rx="2" fill="#64748b" opacity="0.3"/>
+                
+                <rect x="18" y="100" width="103" height="80" fill="#1a1a26" rx="4"/>
+                <rect x="28" y="110" width="60" height="8" rx="2" fill="#64748b" opacity="0.4"/>
+                <rect x="28" y="125" width="80" height="40" fill="#0f0f17" rx="3"/>
+                
+                <rect x="129" y="100" width="103" height="80" fill="#6366f1" opacity="0.15" rx="4"/>
+                <rect x="139" y="110" width="70" height="8" rx="2" fill="#6366f1"/>
+            </svg>
+        `;
+    }
+
+    // Hi-Fi Wireframe
+    const hifi = document.getElementById('wireframe-hifi');
+    if (hifi) {
+        hifi.innerHTML = `
+            <svg viewBox="0 0 250 200" width="100%" height="100%" style="background: #0a0a0f;">
+                <rect x="10" y="10" width="230" height="180" fill="#12121a" rx="8"/>
+                
+                <rect x="15" y="15" width="65" height="18" rx="4" fill="#6366f1"/>
+                <text x="28" y="28" fill="white" font-size="8">Dashboard</text>
+                <rect x="200" y="17" width="35" height="14" rx="7" fill="#10b981"/>
+                
+                <rect x="18" y="42" width="214" height="50" fill="#16161f" rx="5"/>
+                <rect x="28" y="52" width="50" height="30" rx="4" fill="#6366f1" opacity="0.2"/>
+                <rect x="88" y="52" width="50" height="30" rx="4" fill="#10b981" opacity="0.2"/>
+                <rect x="148" y="52" width="50" height="30" rx="4" fill="#f59e0b" opacity="0.2"/>
+                
+                <rect x="18" y="100" width="214" height="82" fill="#16161f" rx="5"/>
+                <rect x="28" y="110" width="80" height="10" rx="2" fill="#f8fafc"/>
+                <rect x="28" y="128" width="194" height="45" fill="#0f0f17" rx="4"/>
+                <rect x="38" y="138" width="60" height="8" rx="2" fill="#6366f1"/>
+                <rect x="38" y="152" width="80" height="6" rx="2" fill="#64748b" opacity="0.4"/>
+                <rect x="38" y="162" width="50" height="6" rx="2" fill="#64748b" opacity="0.3"/>
+            </svg>
+        `;
+    }
+
+    // Screen Layout Capability
+    const screen = document.getElementById('wire-cap-screen');
+    if (screen) {
+        screen.innerHTML = `
+            <svg viewBox="0 0 200 120" width="100%" height="100%" style="background: #0f0f17;">
+                <rect x="20" y="10" width="160" height="100" fill="#12121a" rx="4" stroke="#6366f1" stroke-width="1"/>
+                <rect x="28" y="18" width="144" height="20" fill="#16161f" rx="3"/>
+                <rect x="28" y="45" width="68" height="55" fill="#16161f" rx="3"/>
+                <rect x="104" y="45" width="68" height="55" fill="#16161f" rx="3"/>
+            </svg>
+        `;
+    }
+
+    // States Capability
+    const states = document.getElementById('wire-cap-states');
+    if (states) {
+        states.innerHTML = `
+            <svg viewBox="0 0 200 120" width="100%" height="100%" style="background: #0f0f17;">
+                <rect x="15" y="30" width="50" height="25" rx="4" fill="#6366f1"/>
+                <text x="40" y="46" fill="white" font-size="7" text-anchor="middle">Default</text>
+                
+                <rect x="75" y="30" width="50" height="25" rx="4" fill="#8b5cf6"/>
+                <text x="100" y="46" fill="white" font-size="7" text-anchor="middle">Hover</text>
+                
+                <rect x="135" y="30" width="50" height="25" rx="4" fill="#a78bfa"/>
+                <text x="160" y="46" fill="white" font-size="7" text-anchor="middle">Active</text>
+                
+                <rect x="15" y="70" width="50" height="25" rx="4" fill="#64748b" opacity="0.5"/>
+                <text x="40" y="86" fill="#64748b" font-size="7" text-anchor="middle">Disabled</text>
+                
+                <rect x="75" y="70" width="50" height="25" rx="4" fill="#ef4444"/>
+                <text x="100" y="86" fill="white" font-size="7" text-anchor="middle">Error</text>
+                
+                <rect x="135" y="70" width="50" height="25" rx="4" fill="#10b981"/>
+                <text x="160" y="86" fill="white" font-size="7" text-anchor="middle">Success</text>
+            </svg>
+        `;
+    }
+
+    // Documentation Capability
+    const doc = document.getElementById('wire-cap-doc');
+    if (doc) {
+        doc.innerHTML = `
+            <svg viewBox="0 0 200 120" width="100%" height="100%" style="background: #0f0f17;">
+                <rect x="10" y="10" width="180" height="100" fill="#12121a" rx="4"/>
+                <rect x="18" y="18" width="60" height="8" fill="#f8fafc" rx="2"/>
+                <rect x="18" y="32" width="155" height="4" fill="#64748b" opacity="0.4"/>
+                <rect x="18" y="40" width="130" height="4" fill="#64748b" opacity="0.4"/>
+                <rect x="18" y="48" width="145" height="4" fill="#64748b" opacity="0.4"/>
+                
+                <rect x="18" y="60" width="75" height="40" fill="#16161f" rx="3"/>
+                <rect x="100" y="60" width="75" height="40" fill="#16161f" rx="3"/>
+            </svg>
+        `;
+    }
+
+    // Handoff Capability
+    const handoff = document.getElementById('wire-cap-handoff');
+    if (handoff) {
+        handoff.innerHTML = `
+            <svg viewBox="0 0 200 120" width="100%" height="100%" style="background: #0f0f17;">
+                <rect x="10" y="20" width="80" height="80" fill="#12121a" rx="4" stroke="#a259ff" stroke-width="1"/>
+                <text x="50" y="50" fill="#a259ff" font-size="8" text-anchor="middle">Design</text>
+                <rect x="25" y="60" width="50" height="25" fill="#16161f" rx="3"/>
+                
+                <line x1="95" y1="60" x2="105" y2="60" stroke="#64748b" stroke-width="2"/>
+                <polygon points="105,55 115,60 105,65" fill="#64748b"/>
+                
+                <rect x="120" y="20" width="70" height="80" fill="#12121a" rx="4" stroke="#10b981" stroke-width="1"/>
+                <text x="155" y="50" fill="#10b981" font-size="8" text-anchor="middle">Dev</text>
+                <rect x="130" y="60" width="50" height="25" fill="#16161f" rx="3"/>
             </svg>
         `;
     }
