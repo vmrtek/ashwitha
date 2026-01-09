@@ -29,19 +29,25 @@ function Home() {
         {/* Floating Tool Cards */}
         <div className="hero-tools">
           <Link to="/airtable" className="tool-card tool-airtable">
-            <AirtableLogo size={32} />
-            <span>Airtable</span>
-            <small>Roadmaps & Visualization</small>
+            <AirtableLogo size={36} />
+            <div>
+              <span>Airtable</span>
+              <small>Roadmaps & Visualization</small>
+            </div>
           </Link>
           <Link to="/wireframes" className="tool-card tool-figma">
-            <FigmaLogo size={32} />
-            <span>Figma</span>
-            <small>Wireframes & Prototypes</small>
+            <FigmaLogo size={36} />
+            <div>
+              <span>Figma</span>
+              <small>Wireframes & Prototypes</small>
+            </div>
           </Link>
           <Link to="/wireframes" className="tool-card tool-miro">
-            <MiroLogo size={32} />
-            <span>Miro</span>
-            <small>User Flows & Research</small>
+            <MiroLogo size={36} />
+            <div>
+              <span>Miro</span>
+              <small>User Flows & Research</small>
+            </div>
           </Link>
         </div>
       </section>
