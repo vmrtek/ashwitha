@@ -1,18 +1,14 @@
 // Official Tool & Technology Logos
 
-export const AirtableLogo = ({ size = 24, className = '' }) => (
-  <svg 
+export const AirtableLogo = ({ size = 24, className = '', style = {} }) => (
+  <img 
+    src="/airtable-icon.webp" 
+    alt="Airtable" 
     width={size} 
     height={size} 
-    viewBox="0 0 32 32" 
     className={className}
-    fill="none"
-  >
-    {/* Official Airtable Logo - Exact Brand Mark from Airtable Brand Guidelines */}
-    <path d="M15.482 2.143L3.037 7.264a1.2 1.2 0 000 2.204l12.493 5.14a3.2 3.2 0 002.44 0l12.493-5.14a1.2 1.2 0 000-2.204L17.978 2.143a3.2 3.2 0 00-2.496 0z" fill="#FCB400"/>
-    <path d="M17.2 16.61v11.587c0 .74.752 1.254 1.44.98l10.869-4.295a1.2 1.2 0 00.791-1.128V12.167c0-.74-.752-1.254-1.44-.98L17.99 15.482a1.2 1.2 0 00-.79 1.128z" fill="#18BFFF"/>
-    <path d="M14.8 16.61v11.587c0 .74-.752 1.254-1.44.98L2.491 24.882a1.2 1.2 0 01-.791-1.128V12.167c0-.74.752-1.254 1.44-.98l10.869 4.295a1.2 1.2 0 01.791 1.128z" fill="#F82B60"/>
-  </svg>
+    style={{ objectFit: 'contain', ...style }}
+  />
 );
 
 export const FigmaLogo = ({ size = 24, className = '' }) => (
