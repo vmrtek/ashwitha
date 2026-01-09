@@ -1,94 +1,118 @@
-# Ashwitha Reddy - UX Designer Portfolio
+# Ashwitha Reddy - Product Designer Portfolio
 
-A comprehensive portfolio showcasing expertise in **Airtable visualization**, **wireframing**, **user flow design**, and **cross-functional collaboration** across multiple industries.
+A modern React-based portfolio showcasing UX design expertise in Airtable visualization, wireframing, and product design for healthcare and enterprise applications.
 
-## 🎯 Overview
+## 🚀 Technologies Used
 
-This portfolio demonstrates 5 years of UX design experience with a focus on:
-- **Airtable** - Product roadmaps, feature dependencies, workflow visualization, linked records, filtered views, timeline & kanban boards
-- **Figma** - UI design, prototyping, design systems, component libraries
-- **Miro** - User flow mapping, brainstorming, collaborative workshops, journey mapping
-- **Wireframing** - Low-fidelity, mid-fidelity, and high-fidelity wireframe development
+### Frontend Framework
+- **React 18** - Modern component-based UI library
+- **React Router 6** - Client-side routing for SPA navigation
+- **Vite** - Next-generation frontend build tool
 
-## 🏆 Featured Projects
+### Core Skills Demonstrated
+- **Airtable** - Product roadmaps, linked records, timeline views, kanban boards
+- **Figma** - UI design, prototyping, design systems, wireframing
+- **Miro** - User flow mapping, journey mapping, collaborative workshops
+- **Wireframing** - Low to high fidelity, documentation, engineering handoff
 
-### 1. Healthcare - CareFlow: Clinical Workflow Management System
-End-to-end patient care coordination platform for a 500+ bed hospital network
-- **Tools:** Airtable, Figma, Miro
-- **Deliverables:** 40+ wireframes, 150+ feature roadmap, 12 user flows
-- **Results:** 65% reduction in handoff delays, 94% user adoption
-
-### 2. Retail - RetailSync: Omnichannel Inventory Management  
-Real-time inventory visibility across 200+ store locations
-- **Tools:** Airtable, Figma, Miro
-- **Deliverables:** 60+ wireframes, 200+ feature roadmap, mobile & desktop interfaces
-- **Results:** 85% reduction in stockouts, $1.8M annual savings
-
-### 3. Manufacturing - FactoryOS: Production Line Monitoring Platform
-IoT-integrated manufacturing execution system for smart factory operations
-- **Tools:** Airtable, Figma, Miro
-- **Deliverables:** 80+ wireframes, 180+ feature backlog, control room dashboards
-- **Results:** 40% less unplanned downtime, 60% faster issue detection
-
-### 4. E-commerce - ShopHub: Seller Management Platform
-B2B marketplace platform for 10,000+ third-party sellers
-- **Tools:** Airtable, Figma, Miro
-- **Deliverables:** 75+ wireframes, cross-team dependency roadmap, annotation system
-- **Results:** 3-day onboarding (from 15), 60% fewer support tickets
-
-### 5. Banking - LoanStream: Commercial Lending Platform
-End-to-end loan origination and servicing system for commercial banking
-- **Tools:** Airtable, Figma, Miro
-- **Deliverables:** 100+ wireframes, compliance-linked roadmap, approval workflows
-- **Results:** 18-day processing (from 45), 100% compliance audit pass
-
-## 🛠️ Skills & Technologies
-
-### Visualization Tools
-- **Airtable** (Expert) - Roadmaps, dependencies, linked records, views
-- **Figma** (Advanced) - Design, prototyping, systems
-- **Miro** (Advanced) - User flows, journey mapping, workshops
-
-### Design Skills
-- Low-Fidelity Wireframing
-- Mid-Fidelity Wireframing
-- User Flow Design
-- Screen Layout Definition
-- Requirement Visualization
-- Design Annotations
-- Functional Screen Documentation
-
-### Domain Expertise
-- Healthcare Systems
-- Internal Enterprise Applications
-- Clinical & Operational Workflows
-
-## 📂 Project Structure
+## 📁 Project Structure
 
 ```
-├── index.html      # Main portfolio page
-├── styles.css      # Styling and responsive design
-├── script.js       # Interactive visualizations
-└── README.md       # Project documentation
+portfolio-react/
+├── src/
+│   ├── components/
+│   │   ├── Layout.jsx      # Main layout with Navbar & Footer
+│   │   ├── Navbar.jsx      # Navigation with active states
+│   │   └── Footer.jsx      # Site footer
+│   ├── pages/
+│   │   ├── Home.jsx        # Landing page
+│   │   ├── About.jsx       # Personal profile & experience
+│   │   ├── Skills.jsx      # Tools & capabilities
+│   │   ├── Projects.jsx    # 5 industry case studies
+│   │   ├── Airtable.jsx    # Airtable expertise deep dive
+│   │   ├── Wireframes.jsx  # Wireframing approach
+│   │   └── Contact.jsx     # Contact information
+│   ├── App.jsx             # React Router configuration
+│   ├── main.jsx            # Application entry point
+│   └── index.css           # Global styles
+├── index.html
+├── package.json
+└── vite.config.js
 ```
 
-## 🚀 Running Locally
+## 🏥 Featured Projects
 
-1. Clone or download this repository
-2. Open a terminal in the project directory
-3. Start a local server:
-   ```bash
-   python3 -m http.server 8080
-   ```
-4. Open http://localhost:8080 in your browser
+### 1. Healthcare - CareFlow
+Clinical workflow management system for 500+ bed hospital network
+- 150+ Airtable features across 8 clinical modules
+- 40+ Figma wireframes
+- 65% reduction in care handoff delays
 
-## 📧 Contact
+### 2. Retail - RetailSync
+Omnichannel inventory management for 200+ store locations
+- 200+ features in Airtable roadmap
+- 60+ wireframes from low to high fidelity
+- 85% reduction in stockouts
 
-- **Email:** ashwithareddyk27@gmail.com
-- **Phone:** +1 (678) 603-8174
-- **LinkedIn:** [linkedin.com/in/reddyashwitha](https://linkedin.com/in/reddyashwitha)
+### 3. Manufacturing - FactoryOS
+IoT-integrated production line monitoring platform
+- 180+ Airtable features linked to business requirements
+- 80+ wireframes for control room displays
+- 40% reduction in unplanned downtime
+
+### 4. E-commerce - ShopHub
+B2B seller management platform for 10,000+ sellers
+- Cross-team Airtable dependencies
+- 75+ wireframes for seller portal
+- Onboarding reduced from 15 to 3 days
+
+### 5. Banking - LoanStream
+Commercial lending platform handling $2B+ annually
+- Regulatory requirements linked to features in Airtable
+- 100+ wireframes covering loan lifecycle
+- 100% compliance audit pass rate
+
+## 🛠️ Getting Started
+
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+```bash
+# Navigate to the React project
+cd portfolio-react
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+## 📞 Contact
+
+- **Email**: ashwithareddyk27@gmail.com
+- **Phone**: +1 (678) 603-8174
+- **LinkedIn**: [linkedin.com/in/reddyashwitha](https://linkedin.com/in/reddyashwitha)
+
+## 📄 License
+
+This portfolio is for demonstration purposes.
 
 ---
 
-© 2025 Ashwitha Reddy - UX Designer
-
+Built with React + Vite
