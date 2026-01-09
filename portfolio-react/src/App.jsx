@@ -7,6 +7,7 @@ import Projects from './pages/Projects';
 import Airtable from './pages/Airtable';
 import Wireframes from './pages/Wireframes';
 import Contact from './pages/Contact';
+import HealthcareProject from './pages/HealthcareProject';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="skills" element={<Skills />} />
           <Route path="projects" element={<Projects />} />
+          <Route path="projects/healthcare" element={<HealthcareProject />} />
           <Route path="airtable" element={<Airtable />} />
           <Route path="wireframes" element={<Wireframes />} />
           <Route path="contact" element={<Contact />} />
