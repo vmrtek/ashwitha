@@ -18,19 +18,20 @@ export const InteractiveDashboard = () => {
     { icon: '⚙️', label: 'Settings', badge: null },
   ];
 
+  // HIGH CONTRAST COLORS
   const stats = [
-    { label: 'Total Patients', value: 124, change: '+12', color: '#6366f1' },
-    { label: 'Pending Handoffs', value: 8, change: '+3', color: '#f59e0b' },
-    { label: 'Discharges Today', value: 15, change: '+5', color: '#10b981' },
-    { label: 'Critical Alerts', value: 3, change: '+1', color: '#ef4444' },
+    { label: 'Total Patients', value: 124, change: '+12', color: '#818cf8' },
+    { label: 'Pending Handoffs', value: 8, change: '+3', color: '#fbbf24' },
+    { label: 'Discharges Today', value: 15, change: '+5', color: '#34d399' },
+    { label: 'Critical Alerts', value: 3, change: '+1', color: '#f87171' },
   ];
 
   const patients = [
-    { id: 1, name: 'John Doe', room: '412-B', status: 'Stable', statusColor: '#10b981', action: 'Handoff Due', time: '2h ago', vitals: { bp: '120/80', hr: 72, temp: '98.6°F' } },
-    { id: 2, name: 'Mary Smith', room: '305-A', status: 'Critical', statusColor: '#ef4444', action: 'Check Vitals', time: '15m ago', vitals: { bp: '90/60', hr: 110, temp: '101.2°F' } },
-    { id: 3, name: 'Robert Johnson', room: '501-C', status: 'Improving', statusColor: '#f59e0b', action: 'Discharge', time: '1h ago', vitals: { bp: '118/76', hr: 68, temp: '98.4°F' } },
-    { id: 4, name: 'Emily Davis', room: '203-D', status: 'Stable', statusColor: '#10b981', action: 'Update Notes', time: '3h ago', vitals: { bp: '122/82', hr: 74, temp: '98.2°F' } },
-    { id: 5, name: 'Michael Brown', room: '418-A', status: 'Pending', statusColor: '#6366f1', action: 'Initial Assessment', time: '30m ago', vitals: { bp: '125/85', hr: 78, temp: '98.8°F' } },
+    { id: 1, name: 'John Doe', room: '412-B', status: 'Stable', statusColor: '#34d399', action: 'Handoff Due', time: '2h ago', vitals: { bp: '120/80', hr: 72, temp: '98.6°F' } },
+    { id: 2, name: 'Mary Smith', room: '305-A', status: 'Critical', statusColor: '#f87171', action: 'Check Vitals', time: '15m ago', vitals: { bp: '90/60', hr: 110, temp: '101.2°F' } },
+    { id: 3, name: 'Robert Johnson', room: '501-C', status: 'Improving', statusColor: '#fbbf24', action: 'Discharge', time: '1h ago', vitals: { bp: '118/76', hr: 68, temp: '98.4°F' } },
+    { id: 4, name: 'Emily Davis', room: '203-D', status: 'Stable', statusColor: '#34d399', action: 'Update Notes', time: '3h ago', vitals: { bp: '122/82', hr: 74, temp: '98.2°F' } },
+    { id: 5, name: 'Michael Brown', room: '418-A', status: 'Pending', statusColor: '#818cf8', action: 'Initial Assessment', time: '30m ago', vitals: { bp: '125/85', hr: 78, temp: '98.8°F' } },
   ];
 
   return (
@@ -66,8 +67,8 @@ export const InteractiveDashboard = () => {
                 <span style={{ fontSize: '1.5rem' }}>🏥</span>
               </div>
               <div>
-                <span style={{ color: 'white', fontWeight: 700, fontSize: '1.125rem', display: 'block' }}>CareFlow</span>
-                <span style={{ color: '#64748b', fontSize: '0.6875rem' }}>LifeBridge Health</span>
+                <span style={{ color: '#ffffff', fontWeight: 700, fontSize: '1.125rem', display: 'block' }}>CareFlow</span>
+                <span style={{ color: '#9ca3af', fontSize: '0.6875rem' }}>LifeBridge Health</span>
               </div>
             </div>
           </div>
@@ -82,22 +83,23 @@ export const InteractiveDashboard = () => {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.875rem',
-                background: activeNav === item.label ? 'rgba(99, 102, 241, 0.15)' : 'transparent',
-                borderLeft: activeNav === item.label ? '3px solid #6366f1' : '3px solid transparent',
+                background: activeNav === item.label ? 'rgba(129, 140, 248, 0.2)' : 'transparent',
+                borderLeft: activeNav === item.label ? '3px solid #818cf8' : '3px solid transparent',
                 border: 'none',
                 cursor: 'pointer',
                 transition: 'all 0.2s'
               }}
             >
               <span style={{ fontSize: '1.25rem' }}>{item.icon}</span>
-              <span style={{ color: activeNav === item.label ? 'white' : '#94a3b8', fontSize: '0.9375rem', flex: 1, textAlign: 'left' }}>{item.label}</span>
+              <span style={{ color: activeNav === item.label ? '#ffffff' : '#cbd5e1', fontSize: '0.9375rem', flex: 1, textAlign: 'left', fontWeight: activeNav === item.label ? 600 : 400 }}>{item.label}</span>
               {item.badge && (
                 <span style={{
                   padding: '0.125rem 0.5rem',
-                  background: item.label === 'Medications' ? 'rgba(239, 68, 68, 0.2)' : 'rgba(99, 102, 241, 0.2)',
-                  color: item.label === 'Medications' ? '#ef4444' : '#a5b4fc',
+                  background: item.label === 'Medications' ? 'rgba(248, 113, 113, 0.25)' : 'rgba(129, 140, 248, 0.25)',
+                  color: item.label === 'Medications' ? '#fca5a5' : '#c7d2fe',
                   borderRadius: '100px',
                   fontSize: '0.6875rem',
+                  fontWeight: 600,
                   fontWeight: 600
                 }}>{item.badge}</span>
               )}

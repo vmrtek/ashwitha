@@ -19,8 +19,9 @@ export const AirtableGridView = () => {
     { id: 'F-008', name: 'Lab Results Integration', status: 'Planned', priority: 'High', sprint: 'S4', owner: 'AR', stories: 16, progress: 0, start: 'Q4 2024', end: 'Q1 2025', dependencies: ['F-003'] },
   ];
 
-  const statusColors = { 'Complete': '#10b981', 'In Progress': '#f59e0b', 'Planned': '#6366f1' };
-  const priorityColors = { 'High': '#ef4444', 'Medium': '#f59e0b', 'Low': '#10b981' };
+  // HIGH CONTRAST COLORS for better visibility
+  const statusColors = { 'Complete': '#34d399', 'In Progress': '#fbbf24', 'Planned': '#818cf8' };
+  const priorityColors = { 'High': '#f87171', 'Medium': '#fbbf24', 'Low': '#34d399' };
 
   const filteredFeatures = features.filter(f => 
     f.name.toLowerCase().includes(filter.toLowerCase()) || 
@@ -44,19 +45,19 @@ export const AirtableGridView = () => {
         </div>
       </div>
       
-      {/* Toolbar */}
+      {/* Toolbar - HIGH CONTRAST */}
       <div style={{ padding: '0.875rem 1.25rem', background: '#161b22', borderBottom: '1px solid rgba(255,255,255,0.1)', display: 'flex', gap: '0.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
         <button 
           onClick={() => setActiveView('grid')} 
-          style={{ padding: '0.5rem 1rem', background: activeView === 'grid' ? '#21262d' : 'transparent', border: activeView === 'grid' ? '1px solid rgba(99, 102, 241, 0.5)' : '1px solid transparent', borderRadius: '8px', color: activeView === 'grid' ? '#a5b4fc' : '#8b949e', fontSize: '0.875rem', cursor: 'pointer', transition: 'all 0.2s' }}
+          style={{ padding: '0.5rem 1rem', background: activeView === 'grid' ? 'rgba(129, 140, 248, 0.2)' : 'transparent', border: activeView === 'grid' ? '1px solid rgba(129, 140, 248, 0.5)' : '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: activeView === 'grid' ? '#c7d2fe' : '#cbd5e1', fontSize: '0.875rem', cursor: 'pointer', transition: 'all 0.2s', fontWeight: activeView === 'grid' ? 600 : 400 }}
         >⊞ Grid View</button>
         <button 
           onClick={() => setActiveView('timeline')} 
-          style={{ padding: '0.5rem 1rem', background: activeView === 'timeline' ? '#21262d' : 'transparent', border: activeView === 'timeline' ? '1px solid rgba(99, 102, 241, 0.5)' : '1px solid transparent', borderRadius: '8px', color: activeView === 'timeline' ? '#a5b4fc' : '#8b949e', fontSize: '0.875rem', cursor: 'pointer', transition: 'all 0.2s' }}
+          style={{ padding: '0.5rem 1rem', background: activeView === 'timeline' ? 'rgba(129, 140, 248, 0.2)' : 'transparent', border: activeView === 'timeline' ? '1px solid rgba(129, 140, 248, 0.5)' : '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: activeView === 'timeline' ? '#c7d2fe' : '#cbd5e1', fontSize: '0.875rem', cursor: 'pointer', transition: 'all 0.2s', fontWeight: activeView === 'timeline' ? 600 : 400 }}
         >📅 Timeline</button>
         <button 
           onClick={() => setActiveView('kanban')} 
-          style={{ padding: '0.5rem 1rem', background: activeView === 'kanban' ? '#21262d' : 'transparent', border: activeView === 'kanban' ? '1px solid rgba(99, 102, 241, 0.5)' : '1px solid transparent', borderRadius: '8px', color: activeView === 'kanban' ? '#a5b4fc' : '#8b949e', fontSize: '0.875rem', cursor: 'pointer', transition: 'all 0.2s' }}
+          style={{ padding: '0.5rem 1rem', background: activeView === 'kanban' ? 'rgba(129, 140, 248, 0.2)' : 'transparent', border: activeView === 'kanban' ? '1px solid rgba(129, 140, 248, 0.5)' : '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: activeView === 'kanban' ? '#c7d2fe' : '#cbd5e1', fontSize: '0.875rem', cursor: 'pointer', transition: 'all 0.2s', fontWeight: activeView === 'kanban' ? 600 : 400 }}
         >📋 Kanban</button>
         <div style={{ marginLeft: 'auto', display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
           <input 
@@ -64,10 +65,10 @@ export const AirtableGridView = () => {
             placeholder="🔍 Filter features..." 
             value={filter}
             onChange={(e) => setFilter(e.target.value)}
-            style={{ padding: '0.5rem 1rem', background: '#21262d', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: '#c9d1d9', fontSize: '0.875rem', width: '200px', outline: 'none' }} 
+            style={{ padding: '0.5rem 1rem', background: '#21262d', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '8px', color: '#ffffff', fontSize: '0.875rem', width: '200px', outline: 'none' }} 
             aria-label="Filter features"
           />
-          <button style={{ padding: '0.5rem 1rem', background: '#6366f1', border: 'none', borderRadius: '8px', color: 'white', fontSize: '0.875rem', cursor: 'pointer', fontWeight: 500 }}>+ Add Feature</button>
+          <button style={{ padding: '0.5rem 1rem', background: '#818cf8', border: 'none', borderRadius: '8px', color: '#0a0a0f', fontSize: '0.875rem', cursor: 'pointer', fontWeight: 600 }}>+ Add Feature</button>
         </div>
       </div>
 
@@ -78,15 +79,15 @@ export const AirtableGridView = () => {
             <thead>
               <tr style={{ background: '#161b22' }} role="row">
                 {['ID', 'Feature Name', 'Status', 'Priority', 'Sprint', 'Owner', 'Stories', 'Progress', 'Timeline', 'Dependencies'].map((header, i) => (
-                  <th key={i} style={{ padding: '1rem', textAlign: 'left', fontSize: '0.75rem', fontWeight: 600, color: '#8b949e', borderBottom: '1px solid rgba(255,255,255,0.1)', textTransform: 'uppercase', letterSpacing: '0.05em' }} scope="col">{header}</th>
+                  <th key={i} style={{ padding: '1rem', textAlign: 'left', fontSize: '0.75rem', fontWeight: 600, color: '#cbd5e1', borderBottom: '1px solid rgba(255,255,255,0.1)', textTransform: 'uppercase', letterSpacing: '0.05em' }} scope="col">{header}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {filteredFeatures.map((f, i) => (
                 <tr key={f.id} style={{ background: i % 2 === 0 ? '#0d1117' : '#161b22', transition: 'background 0.2s' }} role="row" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && console.log('Open feature:', f.id)}>
-                  <td style={{ padding: '1rem', fontSize: '0.8125rem', color: '#58a6ff', borderBottom: '1px solid rgba(255,255,255,0.05)', fontFamily: 'monospace' }}>{f.id}</td>
-                  <td style={{ padding: '1rem', fontSize: '0.9375rem', color: '#c9d1d9', fontWeight: 600, borderBottom: '1px solid rgba(255,255,255,0.05)' }}>{f.name}</td>
+                  <td style={{ padding: '1rem', fontSize: '0.8125rem', color: '#7dd3fc', borderBottom: '1px solid rgba(255,255,255,0.05)', fontFamily: 'monospace' }}>{f.id}</td>
+                  <td style={{ padding: '1rem', fontSize: '0.9375rem', color: '#ffffff', fontWeight: 600, borderBottom: '1px solid rgba(255,255,255,0.05)' }}>{f.name}</td>
                   <td style={{ padding: '1rem', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
                     <span style={{ padding: '0.375rem 0.75rem', background: `${statusColors[f.status]}20`, color: statusColors[f.status], borderRadius: '100px', fontSize: '0.75rem', fontWeight: 600 }}>{f.status}</span>
                   </td>
@@ -96,11 +97,11 @@ export const AirtableGridView = () => {
                       <span style={{ fontSize: '0.8125rem', color: '#c9d1d9' }}>{f.priority}</span>
                     </span>
                   </td>
-                  <td style={{ padding: '1rem', fontSize: '0.8125rem', color: '#8b949e', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>{f.sprint}</td>
+                  <td style={{ padding: '1rem', fontSize: '0.8125rem', color: '#cbd5e1', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>{f.sprint}</td>
                   <td style={{ padding: '1rem', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                    <span style={{ width: '32px', height: '32px', background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', borderRadius: '50%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', color: 'white', fontWeight: 700 }} title={`Assigned to ${f.owner}`}>{f.owner}</span>
+                    <span style={{ width: '32px', height: '32px', background: 'linear-gradient(135deg, #818cf8, #a78bfa)', borderRadius: '50%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', color: 'white', fontWeight: 700 }} title={`Assigned to ${f.owner}`}>{f.owner}</span>
                   </td>
-                  <td style={{ padding: '1rem', fontSize: '0.875rem', color: '#58a6ff', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                  <td style={{ padding: '1rem', fontSize: '0.875rem', color: '#7dd3fc', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
                     <span style={{ cursor: 'pointer' }}>{f.stories} →</span>
                   </td>
                   <td style={{ padding: '1rem', borderBottom: '1px solid rgba(255,255,255,0.05)', minWidth: '150px' }}>
@@ -108,14 +109,14 @@ export const AirtableGridView = () => {
                       <div style={{ flex: 1, height: '8px', background: 'rgba(255,255,255,0.1)', borderRadius: '4px', overflow: 'hidden' }} role="progressbar" aria-valuenow={f.progress} aria-valuemin={0} aria-valuemax={100}>
                         <div style={{ width: `${f.progress}%`, height: '100%', background: statusColors[f.status], borderRadius: '4px', transition: 'width 0.3s' }}></div>
                       </div>
-                      <span style={{ fontSize: '0.75rem', color: '#8b949e', minWidth: '35px' }}>{f.progress}%</span>
+                      <span style={{ fontSize: '0.75rem', color: '#cbd5e1', minWidth: '35px' }}>{f.progress}%</span>
                     </div>
                   </td>
-                  <td style={{ padding: '1rem', fontSize: '0.75rem', color: '#8b949e', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>{f.start} → {f.end}</td>
-                  <td style={{ padding: '1rem', fontSize: '0.75rem', color: '#8b949e', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                  <td style={{ padding: '1rem', fontSize: '0.75rem', color: '#cbd5e1', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>{f.start} → {f.end}</td>
+                  <td style={{ padding: '1rem', fontSize: '0.75rem', color: '#cbd5e1', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
                     {f.dependencies.length > 0 ? f.dependencies.map(d => (
-                      <span key={d} style={{ padding: '0.125rem 0.375rem', background: 'rgba(99, 102, 241, 0.2)', color: '#a5b4fc', borderRadius: '4px', marginRight: '0.25rem', fontSize: '0.6875rem' }}>{d}</span>
-                    )) : <span style={{ color: '#6b7280' }}>—</span>}
+                      <span key={d} style={{ padding: '0.125rem 0.375rem', background: 'rgba(129, 140, 248, 0.25)', color: '#c7d2fe', borderRadius: '4px', marginRight: '0.25rem', fontSize: '0.6875rem' }}>{d}</span>
+                    )) : <span style={{ color: '#9ca3af' }}>—</span>}
                   </td>
                 </tr>
               ))}
