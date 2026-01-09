@@ -16,7 +16,6 @@ function Footer() {
           <Link to="/wireframes">Wireframes</Link>
           <Link to="/contact">Contact</Link>
         </div>
-        <p className="copyright">© 2025 Ashwitha Reddy · Built with ❤️</p>
       </div>
     </footer>
   );
