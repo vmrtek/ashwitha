@@ -8,6 +8,10 @@ import Airtable from './pages/Airtable';
 import Wireframes from './pages/Wireframes';
 import Contact from './pages/Contact';
 import HealthcareProject from './pages/HealthcareProject';
+import RetailProject from './pages/RetailProject';
+import ManufacturingProject from './pages/ManufacturingProject';
+import EcommerceProject from './pages/EcommerceProject';
+import BankingProject from './pages/BankingProject';
 
 function App() {
   return (
@@ -19,6 +23,10 @@ function App() {
           <Route path="skills" element={<Skills />} />
           <Route path="projects" element={<Projects />} />
           <Route path="projects/healthcare" element={<HealthcareProject />} />
+          <Route path="projects/retail" element={<RetailProject />} />
+          <Route path="projects/manufacturing" element={<ManufacturingProject />} />
+          <Route path="projects/ecommerce" element={<EcommerceProject />} />
+          <Route path="projects/banking" element={<BankingProject />} />
           <Route path="airtable" element={<Airtable />} />
           <Route path="wireframes" element={<Wireframes />} />
           <Route path="contact" element={<Contact />} />

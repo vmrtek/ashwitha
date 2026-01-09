@@ -664,26 +664,24 @@ function Projects() {
                   {project.title}
                 </h2>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', marginBottom: '1rem' }}>{project.subtitle}</p>
-                {project.id === 'healthcare' && (
-                  <Link 
-                    to="/projects/healthcare" 
-                    style={{ 
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '0.5rem',
-                      padding: '0.625rem 1.25rem',
-                      background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
-                      color: 'white',
-                      borderRadius: '8px',
-                      fontSize: '0.875rem',
-                      fontWeight: 600,
-                      textDecoration: 'none',
-                      transition: 'transform 0.2s, box-shadow 0.2s'
-                    }}
-                  >
-                    🔬 View Interactive Case Study →
-                  </Link>
-                )}
+                <Link 
+                  to={`/projects/${project.id}`} 
+                  style={{ 
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    padding: '0.625rem 1.25rem',
+                    background: `linear-gradient(135deg, ${project.color}, ${project.color}cc)`,
+                    color: 'white',
+                    borderRadius: '8px',
+                    fontSize: '0.875rem',
+                    fontWeight: 600,
+                    textDecoration: 'none',
+                    transition: 'transform 0.2s, box-shadow 0.2s'
+                  }}
+                >
+                  🔬 View Interactive Case Study →
+                </Link>
               </div>
             </div>
 
