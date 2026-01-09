@@ -3,6 +3,7 @@ import { AirtableLogo, FigmaLogo, MiroLogo } from '../components/Icons';
 import { AirtableGridView, AirtableLinkedRecords } from '../components/healthcare/AirtableComponents';
 import { FigmaLowFidelity, FigmaHighFidelity, FigmaMobileView, FigmaComponentLibrary } from '../components/healthcare/FigmaComponents';
 import { MiroPersona, MiroJourneyMap, MiroUserFlow, MiroEmpathyMap } from '../components/healthcare/MiroComponents';
+import { InteractiveDashboard } from '../components/healthcare/InteractiveDashboard';
 
 // ========================================
 // ACCESSIBILITY SECTION
@@ -270,6 +271,19 @@ function HealthcareProject() {
               High-Fidelity Mockups
             </h3>
             <FigmaHighFidelity />
+          </div>
+          
+          {/* Interactive Dashboard */}
+          <div style={{ marginBottom: '4rem' }}>
+            <h3 style={{ fontSize: '1.25rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <span style={{ padding: '0.375rem 0.75rem', background: 'rgba(16, 185, 129, 0.2)', borderRadius: '6px', fontSize: '0.75rem', color: '#6ee7b7' }}>INTERACTIVE</span>
+              Live Dashboard Demo
+              <span style={{ marginLeft: 'auto', padding: '0.375rem 0.75rem', background: '#10b981', borderRadius: '6px', fontSize: '0.75rem', color: 'white', fontWeight: 600 }}>✨ Try It</span>
+            </h3>
+            <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
+              Click on patients, navigate the sidebar, add new patients - this is a fully interactive prototype demonstrating the final dashboard experience.
+            </p>
+            <InteractiveDashboard />
           </div>
           
           {/* Responsive Designs */}
